@@ -1,52 +1,382 @@
 [
-    {
-        "name":"Idaho Falls Temple",
-        "phone":"208-522-7559",
-        "address1":"1000 Memorial Dr.",
-        "city":"Idaho Falls",
-        "state":"ID",
-        "zip":83402,
-        "imageurl":"https://assets.ldscdn.org/90/a0/90a0c0d599f94a2d955930e90fa95b9aa85a5004/idaho_falls_idaho_temple.png",
-        "presidents":[
-            "David Smith","William Killpack","Parley Arave","Cecil Hart","Delbert Groberg","Devere Harris","Rheim Jones","Milton Romrell","C. Gayle Williams","Preston Brimhall","Glen Nelson","Mark Ricks","Newell Richardson","John Groberg","Larry Stoddard","Gerald Mead","Donald Archibald","Doyle Batt"
-        ]
+  {
+    "name": "Idaho Falls Temple",
+    "phone": "208-522-7559",
+    "address1": "1000 Memorial Dr.",
+    "city": "Idaho Falls",
+    "state": "ID",
+    "zip": 83402,
+    "imageurl": "https://assets.ldscdn.org/90/a0/90a0c0d599f94a2d955930e90fa95b9aa85a5004/idaho_falls_idaho_temple.png",
+    "presidents": [
+      "David Smith",
+      "William Killpack",
+      "Parley Arave",
+      "Cecil Hart",
+      "Delbert Groberg",
+      "Devere Harris",
+      "Rheim Jones",
+      "Milton Romrell",
+      "C. Gayle Williams",
+      "Preston Brimhall",
+      "Glen Nelson",
+      "Mark Ricks",
+      "Newell Richardson",
+      "John Groberg",
+      "Larry Stoddard",
+      "Gerald Mead",
+      "Donald Archibald",
+      "Doyle Batt"
+    ],
+    "services": [
+      "Clothing rental available",
+      "No cafeteria available",
+      "No patron housing available",
+      "Distribution center nearby"
+    ],
+    "milestones": [
+      "3 March 1937 - Announced",
+      "19 December 1939 - Groundbreaking",
+      "23 September 1945 - Dedicated",
+      "4 June 2017 - Rededicated "
+    ],
+    "closures": {
+      "2021": [
+        {
+          "startdate": "Friday, 24 December 2021",
+          "enddate": "Saturday, 25 December 2021"
+        },
+        {
+          "startdate": "Friday, 31 December 2021",
+          "enddate": "Friday, 31 December 2021"
+        }
+      ],
+      "2022": [
+        {
+          "startdate": "Saturday, 1 January 2022",
+          "enddate": "Saturday, 1 January 2022"
+        },
+        {
+          "startdate": "Tuesday, 18 January 2022",
+          "enddate": "Monday, 31 January 2022"
+        },
+        {
+          "startdate": "Saturday, 2 April 2022",
+          "enddate": "Saturday, 2 April 2022"
+        },
+        {
+          "startdate": "Tuesday, 28 June 2022",
+          "enddate": "Tuesday, 28 June 2022"
+        },
+        {
+          "startdate": "Saturday, 1 October 2022",
+          "enddate": "Saturday, 1 October 2022"
+        },
+        {
+          "startdate": "Wednesday, 23 November 2022 (Limited Operations)",
+          "enddate": "Wednesday, 23 November 2022 (Limited Operations)"
+        },
+        {
+          "startdate": "Thursday, 24 November 2022",
+          "enddate": "Thursday, 24 November 2022"
+        },
+        {
+          "startdate": "Saturday, 24 December 2022",
+          "enddate": "Saturday, 24 December 2022"
+        },
+        {
+          "startdate": "Saturday, 31 December 2022",
+          "enddate": "Saturday, 31 December 2022"
+        }
+      ]
     },
+    "Summary": {
+      "facts": [
+        "The Idaho Falls Idaho Temple was the first temple built in Idaho.",
 
-    {
-        "name":"Rexburg Idaho Temple",
-        "phone":"208-656-0880",
-        "address1":"750 S 2nd E",
-        "city":"Rexburg",
-        "state":"ID",
-        "zip":83440,
-        "imageurl":"https://assets.ldscdn.org/29/8a/298a8b01fbc736923e83e7c748e60abcad8511c9/rexburg_idaho_temple.jpeg",
-        "presidents":[
-            "Val Christensen","Clair Thueson","Philip Wightman","Fenton Broadhead","Max Checketts"
-        ]
-    } ,   
-    {
-        "name":"Kansas City Missouri Temple",
-        "phone":"816-413-1430",
-        "address1":"7001 Searcy Creek Pkwy",
-        "city":"Kansas City",
-        "state":"MO",
-        "zip":64119,
-        "imageurl":"https://assets.ldscdn.org/62/5e/625e0629b625e2596ad1c160a45f567f207560cc/kansas_city_temple_lds.jpg",
-        "presidents":[
-            "John Hardy","Dennis Karpowitz","Wayne Miller","R. Scott Holman"
-        ]
+        "The Idaho Falls Idaho Temple was the only temple dedicated by President George Albert Smith.",
+
+        " The Idaho Falls Idaho Temple was the first temple designed with a central spire. (The design represented a return to the use of spires, as the three previously dedicated temples featured no towers or spires.)",
+
+        "The Idaho Falls Idaho Temple was originally named the Idaho Falls Temple.",
+
+        "The presentation of the endowment was originally delivered by live acting in the Idaho Falls Idaho Temple.",
+
+        "The east side of the Idaho Falls Idaho Temple originally featured a series of three reflecting ponds that were filled with water lillies and small fish. In the 1960s, the ponds were converted to flowerbeds. In 2011, the concrete ponds were removed as part of a landscaping renovation and replaced with a waterfall feature.",
+        "The design of the Idaho Falls Idaho Temple was inspired by a vision of an ancient Nephite temple beheld by architect John Fetzer, Sr., who had prayed for guidance.",
+
+        "While excavating through sand for the foundation of the Idaho Falls Idaho Temple, workers encountered solid lava rock beneath—an ideal foundation for the basement walls.      ",
+        
+        "At the cornerstone ceremony for the Idaho Falls Idaho Temple held on October 19, 1940, six-year-old John Groberg was given the assignment to hold President David O. McKay's hat. John would later become a general authority and the temple's 14th president.",
+        
+        "Once the exterior of the temple was completed in September 1941, the interior was expected to be completed by the end of the next year. However, World War II shortages delayed completion of the temple four more years.",
+        
+        "The Idaho Falls Idaho Temple features beautiful hand-painted murals on the walls of its progressive-style ordinance rooms: Creation Room, Garden Room, World Room, Terrestrial Room (no murals), and Celestial Room. (Only two other temples feature full Celestial Room murals: the Hamilton New Zealand Temple and the Los Angeles California Temple. The corner pillars in the Logan Utah Temple Celestial Room portray a heavenly landscape, too.)",
+        
+        "The Idaho Falls Idaho Temple is one of only six temples where patrons progress through four ordinance rooms before passing into the Celestial Room. (The other five temples are the Laie Hawaii Temple, the Cardston Alberta Temple, the Mesa Arizona Temple, the Los Angeles California Temple, and the Nauvoo Illinois Temple.)",
+        
+        "In September 1983, a helicopter was employed to install an angel Moroni statue atop the spire of the previously statueless Idaho Falls Idaho Temple.",
+        
+        "The angel Moroni statue atop the Idaho Falls Idaho Temple is a casting made by LaVar Wallgren of the statue created by Torlief Knaphus for the Washington D.C. Ward chapel, which he made as a replica of Cyrus E. Dallin's statue atop the Salt Lake Temple. (Other castings of this statue stand atop the Boston Massachusetts Temple and formerly atop the Atlanta Georgia Temple.)",
+        
+        "In October 2011, a complete renovation of the landscaping of the Idaho Falls Idaho Temple was completed, which included replacement of the flowerbeds on the east side of the temple with a beautiful waterfall feature, installation of four gathering plazas—one in each quadrant of the grounds, reconfiguration of the walkway to the baptistry, and creation of a bridal courtyard on the south side of the temple. The Idaho Falls Beautification Commission awarded the project its top award for 2012 in the non-residential category.",
+        
+        "The Idaho Falls Idaho Temple was rededicated on June 4, 2017, following a two-year renovation that brought the historic temple up to code and refreshed the interior. Structural walls were reinforced, and all mechanical and electrical systems were upgraded. A separate exit was created for brides and grooms, and a large waiting room was added for wedding parties—reducing the size of the former office space. In the ordinance rooms, the original murals were restored, and the number of seats was reduced from 140 to 88 to increase roominess and improve the room-to-room progression of the temple. Finishes and furnishings were replaced throughout the temple in shades of chartreuse, purple, and gold.1"
+      ],
+      "src": "https://churchofjesuschristtemples.org/idaho-falls-idaho-temple/"
+    }
+  },
+
+  {
+    "name": "Rexburg Idaho Temple",
+    "phone": "208-656-0880",
+    "address1": "750 S 2nd E",
+    "city": "Rexburg",
+    "state": "ID",
+    "zip": 83440,
+    "imageurl": "https://assets.ldscdn.org/29/8a/298a8b01fbc736923e83e7c748e60abcad8511c9/rexburg_idaho_temple.jpeg",
+    "presidents": [
+      "Val Christensen",
+      "Clair Thueson",
+      "Philip Wightman",
+      "Fenton Broadhead",
+      "Max Checketts"
+    ],
+    "services": [
+      "Clothing rental available",
+      "No cafeteria available",
+      "No patron housing available",
+      "Distribution center nearby"
+    ],
+    "milestones": [
+      "12 December 2003 - Announced",
+      "30 July 2005 - Groundbreaking",
+      "10 February 2008 - Dedicated"
+    ],
+    "closures": {
+      "2021": [
+        {
+          "startdate": "Wednesday, 24 November 2021",
+          "enddate": "Thursday, 25 November 2021"
+        },
+        {
+          "startdate": "Saturday, 18 December 2021 (Limited Operations)",
+          "enddate": "Saturday, 18 December 2021 (Limited Operations)"
+        },
+        {
+          "startdate": "Friday, 24 December 2021",
+          "enddate": "Friday, 24 December 2021"
+        },
+        {
+          "startdate": "Friday, 31 December 2021",
+          "enddate": "Saturday, 1 January 2022"
+        }
+      ],
+      "2022": [
+        {
+          "startdate": "Saturday, 2 April 2022",
+          "enddate": "Saturday, 2 April 2022"
+        },
+        {
+          "startdate": "Monday, 11 April 2022",
+          "enddate": "Monday, 4 July 2022"
+        },
+        {
+          "startdate": "Saturday, 23 July 2022",
+          "enddate": "Saturday, 23 July 2022"
+        },
+        {
+          "startdate": "Saturday, 1 October 2022",
+          "enddate": "Saturday, 1 October 2022"
+        },
+        {
+          "startdate": "Wednesday, 23 November 2022",
+          "enddate": "Thursday, 24 November 2022"
+        },
+        {
+          "startdate": "Saturday, 24 December 2022",
+          "enddate": "Saturday, 24 December 2022"
+        },
+        {
+          "startdate": "Saturday, 31 December 2022",
+          "enddate": "Saturday, 31 December 2022"
+        }
+      ]
     },
+    "Summary": {
+      "facts": [
+        "The Rexburg Idaho Temple was the third temple built in Idaho, following the Idaho Falls Idaho Temple (1945) and the Boise Idaho Temple (1984).",
 
-    {
-        "name":"Oklahoma City Oklahoma Temple",
-        "phone":"405-373-2309",
-        "address1":"12030 N Mustang Rd",
-        "city":"Yukon",
-        "state":"OK",
-        "zip":73099,
-        "imageurl":"https://assets.ldscdn.org/75/2c/752cf0dcfabe1870442460d13a2eeb8bda6267a2/oklahoma_city_temple_exterior.jpeg",
-        "presidents":[
-            "Henry Chesney","H. Aldridge Gillespie","Michael Southward","Don Hansen","Travis Campbell","Kent Bowman"
-        ]
-    } 
+        "The announcement of the Rexburg Idaho Temple came three and a half years after the announcement that two-year Ricks College would become four-year Brigham Young University–Idaho.",
+
+        "The Rexburg Idaho Temple stands adjacent to Church-owned Brigham Young University–Idaho. The Church's other two universities; Brigham Young University in Provo, Utah, and Brigham Young University–Hawaii in Laie, Hawaii; also have adjacent temples.",
+
+        "While most temple groundbreakings are limited to invited guests, the groundbreaking ceremony for the Rexburg Idaho Temple was open to any and all who desired to attend. Over 8,000 people crowded on the field where the temple now stands.",
+
+        "The Rexburg Idaho Temple features beautiful ordinance room murals by Rexburg artist Leon Parson, reflecting the wildlife and landscapes of the Upper Snake River Valley. Parson was the 2010 recipient of the Eliza R. Snow Award.",
+
+        "A wheat motif, created by Utah artist Tom Holdman, is used throughout the Rexburg Idaho Temple including most of the 700 art-glass windowpanes. The wheat stalk symbolizes the widespread agricultural industry in the area.",
+
+        "The finest materials were used for this House of the Lord including wood imported from Africa and stone and tile from Israel.",
+
+        "The exterior walls of the Rexburg Idaho Temple are made of 637 precast panels from 45 different molds, including the retaining wall. The material is called China White—a white quartz finish (mined in Washington state) on concrete panels. A water-proofing compound allows dust to wash off in the rain, keeping the temple a radiant white.",
+
+        "Interest in the open house of the Rexburg Idaho Temple was so high that additional early-morning and evening tours were added to each day. Over 200,000 visitors toured the temple.",
+
+        "The Rexburg Idaho Temple dedication was delayed one week due to the passing of President Gordon B. Hinckley on Sunday evening, January 27, 2008.",
+
+        "President Thomas S. Monson was installed as the 16th president of The Church of Jesus Christ of Latter-day Saints on Sunday, February 3, 2008—the day originally scheduled for the dedication of the Rexburg Idaho Temple. He dedicated the temple one week later.",
+
+        "In December 2011, the creation of the Rexburg Idaho YSA 8th Stake and Rexburg Idaho YSA 9th Stake made the Rexburg Idaho Temple District the first and only temple district to be comprised of a majority of young adult stakes (YSA and Student Married)."
+      ],
+      "src": "https://churchofjesuschristtemples.org/rexburg-idaho-temple/"
+    }
+  },
+  {
+    "name": "Kansas City Missouri Temple",
+    "phone": "816-413-1430",
+    "address1": "7001 Searcy Creek Pkwy",
+    "city": "Kansas City",
+    "state": "MO",
+    "zip": 64119,
+    "imageurl": "https://assets.ldscdn.org/62/5e/625e0629b625e2596ad1c160a45f567f207560cc/kansas_city_temple_lds.jpg",
+    "presidents": [
+      "John Hardy",
+      "Dennis Karpowitz",
+      "Wayne Miller",
+      "R. Scott Holman"
+    ],
+    "services": [
+      "Clothing rental available",
+      "No cafeteria available",
+      "No patron housing available",
+      "No distribution center nearby"
+    ],
+    "milestones": [
+      "4 October 2008 -Announced",
+      "8 May 2010 - Groundbreaking",
+      "6 May 2012 - Dedicated"
+    ],
+    "closures": {
+      "2021": [
+        {
+          "startdate": "Friday, 24 December 2021",
+          "enddate": "Saturday, 25 December 2021"
+        },
+        {
+          "startdate": "Friday, 31 December 2021 (Limited Operations)",
+          "enddate": "Friday, 31 December 2021 (Limited Operations)"
+        }
+      ],
+      "2022": [
+        {
+          "startdate": "Saturday, 1 January 2022",
+          "enddate": "Saturday, 1 January 2022"
+        },
+        {
+          "startdate": "Saturday, 2 April 2022",
+          "enddate": "Saturday, 2 April 2022"
+        },
+        {
+          "startdate": "Monday, 18 April 2022",
+          "enddate": "Monday, 25 April 2022"
+        },
+        {
+          "startdate": "Monday, 19 September 2022",
+          "enddate": "Monday, 19 December 2022"
+        },
+        {
+          "startdate": "Saturday, 24 December 2022",
+          "enddate": "Saturday, 24 December 2022"
+        }
+      ]
+    },
+    "Summary": {
+      "facts": [
+        " The Kansas City Missouri Temple was the second temple built in Missouri, following the St. Louis Missouri Temple (1997), though temple sites were dedicated in the 1830s for temples that were not constructed in Independence, Far West, and Adam-ondi-Ahman.",
+
+        "The location of the Kansas City Missouri Temple site was announced at the Liberty Missouri Stake Conference on Sunday, October 12, 2008.",
+
+        "On March 24, 2011, large crowds gathered to the Kansas City Missouri Temple to witness the raising of the gold-leafed angel Moroni statue atop the eastern tower. The two towers and the finial of the western tower had been installed the three days prior.",
+
+        "Beautiful white oak harvested from Adam-ondi-Ahman was used throughout the interior of the Kansas City Missouri Temple.",
+        
+        "Nearly 91,000 people toured the Kansas City Missouri Temple during its public open house. Because of the high number of reservations made for tour times, the open house was extended an additional week.",
+
+        "The Kansas City Missouri Temple won the PCI Design Award for Best Religious Structure in 2012. PCI stands for the Precast/Prestressed Concrete Institute."
+      ],
+      "src": "https://churchofjesuschristtemples.org/kansas-city-missouri-temple/"
+    }
+  },
+
+  {
+    "name": "Oklahoma City Oklahoma Temple",
+    "phone": "405-373-2309",
+    "address1": "12030 N Mustang Rd",
+    "city": "Yukon",
+    "state": "OK",
+    "zip": 73099,
+    "imageurl": "https://assets.ldscdn.org/75/2c/752cf0dcfabe1870442460d13a2eeb8bda6267a2/oklahoma_city_temple_exterior.jpeg",
+    "presidents": [
+      "Henry Chesney",
+      "H. Aldridge Gillespie",
+      "Michael Southward",
+      "Don Hansen",
+      "Travis Campbell",
+      "Kent Bowman"
+    ],
+    "services": [
+      "No rental available",
+      "No cafeteria available",
+      "No patron housing available",
+      "No distribution center nearby"
+    ],
+    "milestones": [
+      "14 March 1999 - Announced",
+      "3 July 1999 - Groundbreaking",
+      "30 July 2000 - Dedicated",
+      "19 May 2019 - Rededicated"
+    ],
+    "closures": {
+      "2021": [
+        {
+          "startdate": "Monday, 6 December 2021",
+          "enddate": "Monday, 24 January 2022"
+        }
+      ],
+      "2022": [
+        {
+          "startdate": "Saturday, 2 April 2022",
+          "enddate": "Saturday, 2 April 2022"
+        },
+        {
+          "startdate": "Monday, 20 June 2022",
+          "enddate": "Monday, 11 July 2022"
+        },
+        {
+          "startdate": "Wednesday, 23 November 2022 (Limited Operations)",
+          "enddate": "Wednesday, 23 November 2022 (Limited Operations)"
+        },
+        {
+          "startdate": "Wednesday, 23 November 2022",
+          "enddate": "Thursday, 24 November 2022"
+        },
+        {
+          "startdate": "Monday, 28 November 2022",
+          "enddate": "Monday, 12 December 2022"
+        },
+        {
+          "startdate": "Saturday, 24 December 2022",
+          "enddate": "Monday, 26 December 2022"
+        }
+      ]
+    },
+    "Summary": {
+      "facts": [
+        "The Oklahoma City Oklahoma Temple was the first temple built in Oklahoma.",
+
+        "The Oklahoma City Oklahoma Temple closed on October 15, 2017, for an extensive renovation project that altered the exterior appearance of the building and fully upgraded the interior. It was rededicated on Sunday, May 19, 2019, by President Henry B. Eyring, who was the second counselor in the First Presidency."
+      ],
+      "src": "https://churchofjesuschristtemples.org/oklahoma-city-oklahoma-temple/"
+    }
+  }
 ]
