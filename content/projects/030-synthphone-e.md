@@ -21,4 +21,6 @@ url = "https://github.com/nathansbradshaw/daisy-mic"
 
 A telephone turned into a vocal processor, with firmware written in Rust.
 
+The project reaches beyond the phone: a vocal DSP library, desktop tools for trying the effects, and the Daisy Mic embedded-audio workshop. The links below follow those different parts of the build.
+
 ![The red Synthphone-E telephone with its handset, controls, and vocal processor label](/images/synthphone-e.png){ width="500" height="349" loading="lazy" decoding="async" }
