@@ -93,7 +93,7 @@ class ContentWorkflowTests(unittest.TestCase):
         self.assertNotIn('Electronics, keyboards, music &amp; software.', guide)
         self.assertIn('href="#sample-9--fn:bench"', guide)
         self.assertIn('id="sample-9--fn:bench"', guide)
-        self.assertIn('href="/assets/printer.css"', (self.output / '404.html').read_text())
+        self.assertRegex((self.output / '404.html').read_text(), r'href="/assets/printer.css\?v=[a-f0-9]{12}"')
 
 
 if __name__ == '__main__':

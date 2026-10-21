@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 from html import escape
 from html.parser import HTMLParser
 from pathlib import Path
@@ -175,6 +176,8 @@ def build(source: Path, output: Path) -> int:
         raise ContentError(f'{settings_path}: add a [printer] section (see README.md)')
     for key in ['label', 'feed_label', 'next_label', 'next_description', 'ready', 'printing', 'end']:
         values['printer_' + key] = text(printer, key, settings_path)
+    for kind, filename in [('css', 'printer.css'), ('js', 'printer.js')]:
+        values[kind + '_version'] = hashlib.sha256((source / 'assets' / filename).read_bytes()).hexdigest()[:12]
     values = {key: escape(value, quote=True) for key, value in values.items()}
     values['printer_feed_label'] = values['printer_feed_label'].replace('\n', '<br>')
     values['intro_html'] = render_markdown((source / 'content/intro.md').read_text(encoding='utf-8'))

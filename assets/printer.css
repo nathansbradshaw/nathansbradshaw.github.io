@@ -114,6 +114,7 @@ body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#6
 #project-printer .markdown summary { color:var(--link); cursor:pointer; text-decoration:underline dotted; text-underline-offset:4px; }
 #project-printer .markdown details[open] summary { margin-bottom:14px; }
 @media(max-width:520px) {
+ #project-printer .markdown img:not(.full-color) { filter:url(#ribbon-print-fine); }
  .site-shell { width:calc(100% - 16px); margin-top:8px; }
  #project-printer .bench { padding:10px 8px 13px; }
  #project-printer .sheet { width:calc(100% - 8px); padding:23px 28px var(--printer-clearance,190px); }

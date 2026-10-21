@@ -1,16 +1,5 @@
 (() => {
   const root = document.getElementById('project-printer');
-  const photoCell = document.querySelector('#ribbon-print feImage');
-  const smallPaper = window.matchMedia('(max-width: 520px)');
-  function sizePhotoDots() {
-    if (!photoCell) return;
-    const spacing = smallPaper.matches ? '2' : '3';
-    photoCell.setAttribute('width', spacing);
-    photoCell.setAttribute('height', spacing);
-  }
-  smallPaper.addEventListener('change', sizePhotoDots);
-  sizePhotoDots();
-
   const printer = root.querySelector('.printer');
   const headTrack = root.querySelector('.mechanism');
   const status = root.querySelector('.status span');

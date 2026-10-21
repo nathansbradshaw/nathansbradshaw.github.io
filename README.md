@@ -61,8 +61,7 @@ attributes reserve space while a photo loads:
 
 Images print as halftone dots in the same ink and paper colors as the text,
 with slight ink spread and faint ribbon lines. The SVG filter lives in the
-page template; CSS applies it, and the printer script uses finer dots on small
-screens. Original image files stay in full color. To bypass the effect, add
+page template; CSS selects a finer dot pattern on small screens. Original image files stay in full color. To bypass the effect, add
 `class="full-color"` to its Markdown image attributes.
 
 The Keyboard Keyboard photo comes from the presentation's project-owned photos;
@@ -120,7 +119,7 @@ computer aren't visible to the website until you put them in this repository.
 The layout is in `templates/index.html`, styling in `assets/printer.css`, and
 paper-feed behavior in `assets/printer.js`. The builder is `scripts/build.py`.
 Content is rendered into the HTML at build time; the page remains readable if
-JavaScript is unavailable. JavaScript drives the printer, Next project, and responsive photo dot spacing.
+JavaScript is unavailable. JavaScript drives the printer and Next project.
 
 The DotMatrix fonts are bundled locally. Their SIL Open Font License is in
 `assets/DotMatrix-OFL.txt`.
