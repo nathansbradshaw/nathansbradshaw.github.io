@@ -9,6 +9,14 @@ url = "https://github.com/UnitedCode/synth-phone-e-v2-rust"
 [[links]]
 label = "Vocal DSP library"
 url = "https://github.com/nathansbradshaw/synthphone_e_vocal_dsp"
+
+[[links]]
+label = "Desktop Autotune"
+url = "https://github.com/nathansbradshaw/desktop-autotune-app"
+
+[[links]]
+label = "Daisy Mic"
+url = "https://github.com/nathansbradshaw/daisy-mic"
 +++
 
 A telephone turned into a vocal processor, with firmware written in Rust.
