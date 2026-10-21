@@ -2,13 +2,19 @@
 
 My GitHub landing page: https://nathansbradshaw.github.io/
 
-Just HTML and CSS. No build step or dependencies.
+A Victorian calling card for my projects: burgundy damask, textured paper,
+gilt borders, and engraved ornaments. Just HTML, CSS, and local assets.
+No build step or JavaScript.
 
 ## Edit
 
 - `index.html` — intro and project links
 - `assets/home.css` — layout and colors
 - `assets/nb.svg` — favicon
+- `assets/ornament.svg`, `corner.svg`, `damask.svg`, `grain.svg` — editable ornaments and textures
+
+The heading font is Cormorant Garamond, bundled locally under the SIL Open Font
+License. Its license is in `assets/Cormorant-Garamond-OFL.txt`.
 
 To preview locally, run this from the repository root:
 
@@ -20,7 +26,7 @@ Then open http://localhost:8000.
 
 ## Publish
 
-Push to `main`. The Pages workflow copies the landing page, its two assets, and
+Push to `main`. The Pages workflow copies the landing page, its assets, and
 `public/404.html` into the deployment. GitHub Pages uses **GitHub Actions** as its
 publishing source.
 

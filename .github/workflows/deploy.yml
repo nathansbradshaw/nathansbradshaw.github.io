@@ -31,7 +31,7 @@ jobs:
         run: |
           mkdir -p _site/assets
           cp index.html _site/
-          cp assets/home.css assets/nb.svg _site/assets/
+          cp assets/home.css assets/nb.svg assets/corner.svg assets/damask.svg assets/grain.svg assets/ornament.svg assets/cormorant-garamond-semibold.ttf assets/Cormorant-Garamond-OFL.txt _site/assets/
           cp public/404.html _site/404.html
           touch _site/.nojekyll
 
