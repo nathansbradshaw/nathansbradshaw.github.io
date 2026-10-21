@@ -2,69 +2,44 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # Trigger on pushes to the main branch
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write  # Allow writing to the repository
-
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # Checkout the repository
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v6
 
-      # Set up Rust (required for cargo-binstall)
-      - name: Set up Rust
-        uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-          override: true
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
 
-      # Cache Rust dependencies and build artifacts
-      - name: Cache Rust dependencies
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.cargo
-            target
-          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-cargo-
-
-      # Install cargo-binstall
-      - name: Install cargo-binstall
+      - name: Prepare site
         run: |
-          curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
+          mkdir -p _site/assets
+          cp index.html _site/
+          cp assets/home.css assets/nb.svg _site/assets/
+          cp public/404.html _site/404.html
+          touch _site/.nojekyll
 
-      # Install Dioxus CLI using cargo-binstall
-      - name: Install Dioxus CLI
-        run: cargo binstall dioxus-cli --no-confirm
-
-      # Build the Dioxus project
-      - name: Build Dioxus project
-        run: dx bundle
-
-      # - name: Update asset paths in index.html
-      #   run: |
-      #     sed -i 's|/\./assets/|{{ site.baseurl }}/assets/|g' ./target/dx/rng/release/web/public/index.html
-
-      # - name: Update asset paths
-      #   run: |
-      #     find ./target/dx/rng/release/web/public -name '*.html' -exec sed -i 's|\./assets|./rng/assets|g' {} +
-      #     find ./target/dx/rng/release/web/public -name '*.js' -exec sed -i 's|\./assets|./rng/assets|g' {} +
-      #     find ./target/dx/rng/release/web/public -name '*.css' -exec sed -i 's|\./assets|./rng/assets|g' {} +
-      #     find ./target/dx/rng/release/web/public -name '*.ico' -exec sed -i 's|\./assets|./rng/assets|g' {} +
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/dx/rng/release/web/public  # Update this path to match your build output
-          destination_dir: docs
-          enable_jekyll: true
-          keep_files: true
+          path: _site
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,28 +1,28 @@
-# Development
+# Nathan Bradshaw
 
-Your new bare-bones project includes minimal organization with a single `main.rs` file and a few assets.
+My GitHub landing page: https://nathansbradshaw.github.io/
 
-### Tailwind
-1. Install npm: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-2. Install the Tailwind CSS CLI: https://tailwindcss.com/docs/installation
-3. Run the following command in the root of the project to start the Tailwind CSS compiler:
+Just HTML and CSS. No build step or dependencies.
 
-```bash
-npx tailwindcss -i ./input.css -o ./assets/tailwind.css --watch
+## Edit
+
+- `index.html` — intro and project links
+- `assets/home.css` — layout and colors
+- `assets/nb.svg` — favicon
+
+To preview locally, run this from the repository root:
+
+```sh
+python3 -m http.server 8000
 ```
 
-### Serving Your App
+Then open http://localhost:8000.
 
-Run the following command in the root of your project to start developing with the default platform:
+## Publish
 
-```bash
-dx serve
-```
+Push to `main`. The Pages workflow copies the landing page, its two assets, and
+`public/404.html` into the deployment. GitHub Pages uses **GitHub Actions** as its
+publishing source.
 
-To run for a different platform, use the `--platform platform` flag. E.g.
-```bash
-dx serve --platform desktop
-```
-
-I commited a lot of hackery to get this to work, look at the deploy file and also understand that github expects this to be /rng which is NOT the root
-
+The old Dioxus seating-chart source is still in `src/`, along with its Cargo
+files and assets. It's kept for reference and isn't part of the landing page.
