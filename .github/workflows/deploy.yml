@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -24,16 +25,23 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: '3.13'
+          cache: pip
+
+      - name: Install Markdown parser
+        run: python -m pip install -r requirements.txt
+
+      - name: Check content workflow
+        run: python -m unittest discover -s tests
+
+      - name: Build page from content files
+        run: python scripts/build.py
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
-
-      - name: Prepare site
-        run: |
-          mkdir -p _site/assets
-          cp index.html _site/
-          cp assets/home.css assets/nb.svg assets/corner.svg assets/damask.svg assets/grain.svg assets/ornament.svg assets/cormorant-garamond-semibold.ttf assets/Cormorant-Garamond-OFL.txt _site/assets/
-          cp public/404.html _site/404.html
-          touch _site/.nojekyll
 
       - name: Upload site
         uses: actions/upload-pages-artifact@v4

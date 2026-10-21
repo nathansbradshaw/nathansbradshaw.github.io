@@ -1,0 +1,20 @@
+# Page text and profile links. Project descriptions live in projects/*.md.
+name = "Nathan Bradshaw"
+title = "Nathan Bradshaw — Projects & Experiments"
+description = "Nathan Bradshaw's software, electronics, keyboard, and music projects."
+url = "https://nathansbradshaw.github.io/"
+github_url = "https://github.com/nathansbradshaw"
+github_label = "My GitHub"
+projects_heading = "A few things I've made."
+end_label = "END OF CURRENT LIST"
+all_projects_label = "More on GitHub"
+all_projects_url = "https://github.com/nathansbradshaw?tab=repositories"
+
+[printer]
+label = "DOT MATRIX"
+feed_label = "PAPER\nFEED"
+next_label = "Next project ↓"
+next_description = "Scroll paper to the next project"
+ready = "Ready"
+printing = "Printing"
+end = "End of list"

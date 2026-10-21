@@ -1,5 +1,0 @@
-[build]
-rustflags = [
-    "--cfg", "windows_raw_dylib",
-    "--cfg", "getrandom_backend=\"wasm_js\""
-]

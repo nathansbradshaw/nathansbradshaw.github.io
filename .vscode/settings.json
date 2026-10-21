@@ -1,9 +1,0 @@
-{
-    "tailwindCSS.experimental.classRegex": [
-        "class: \"(.*)\""
-    ],
-    "tailwindCSS.includeLanguages": {
-        "rust": "html"
-    },
-    "tailwindcss-intellisense.trace.server": "messages",
-}

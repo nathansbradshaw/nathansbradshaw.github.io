@@ -1,0 +1,142 @@
+@font-face { font-family:"Printer DotMatrix"; font-weight:700; font-style:normal; font-display:swap; src:url("DotMatrix-Bold.woff2") format("woff2"); }
+@font-face { font-family:"Printer DotMatrix"; font-weight:700; font-style:italic; font-display:swap; src:url("DotMatrix-BoldItalic.woff2") format("woff2"); }
+
+html { background:#303d38; scroll-padding-bottom:150px; }
+body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#697c6819 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#697c6819 23px 24px),#303d38; }
+[hidden] { display:none !important; }
+.site-shell { width:100%; max-width:860px; margin:16px auto 0; }
+.skip-link { position:absolute; top:8px; left:8px; z-index:10; padding:12px; color:#155495; background:#fbf8ec; transform:translateY(-160%); }
+.skip-link:focus { transform:none; }
+#project-printer { --desk:#303d38; --desk-line:#697c6819; --paper:#fbf8ec; --ink:#182824; --link:#155495; --stripe:#648d640c; }
+#project-printer * { box-sizing:border-box; }
+#project-printer .bench { padding:13px 13px 16px; border-radius:5px; background:repeating-linear-gradient(0deg,transparent 0 23px,var(--desk-line) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,var(--desk-line) 23px 24px),linear-gradient(110deg,#435247,var(--desk)); }
+#project-printer .paper-window { position:relative; }
+#project-printer .sheet { position:relative; width:calc(100% - 24px); margin:0 auto; padding:26px 43px var(--printer-clearance,190px); color:var(--ink); background-color:var(--paper); background-image:repeating-linear-gradient(0deg,transparent 0 27px,var(--stripe) 27px 55px); box-shadow:0 2px 9px #0005; font:700 20px/1.55 'Printer DotMatrix',monospace; font-synthesis:none; overflow-wrap:anywhere; }
+#project-printer .sheet::before,#project-printer .sheet::after { content:""; position:absolute; top:0; bottom:0; width:23px; border-inline-end:1px dashed #afa98c77; background:radial-gradient(ellipse 3.5px 4.5px at 11px 12px,var(--desk) 96%,transparent 100%) 0 0/23px 29px repeat-y; pointer-events:none; }
+#project-printer .sheet::before { left:0; }
+#project-printer .sheet::after { right:0; transform:scaleX(-1); }
+#project-printer .print-header { padding-bottom:19px; border-bottom:1px dashed #8c9989; }
+#project-printer h1 { margin:0 0 13px; font:inherit; font-size:36px; line-height:1.2; }
+#project-printer h2 { margin:0 0 12px; font:inherit; font-size:28px; line-height:1.3; }
+#project-printer .intro p { margin:0 0 13px; }
+#project-printer .sheet a { color:var(--link); font:inherit; text-decoration:underline dotted 2px; text-underline-offset:4px; }
+#project-printer .sheet a:hover { background:#15549510; }
+#project-printer .sheet a.stamp-link { display:inline-flex; align-items:center; justify-content:center; gap:.6em; max-width:100%; min-height:44px; padding:5px 10px; border:2px dotted #315f83; color:#174f7e; background:transparent; text-transform:uppercase; font-size:18px; line-height:1.5; text-decoration-thickness:1px; }
+#project-printer .sheet a.stamp-link:hover { color:#123e66; background:#315f8312; border-color:#174f7e; text-decoration-thickness:2px; }
+#project-printer .stamp-link span { white-space:nowrap; }
+#project-printer .print-header .stamp-link { margin-top:2px; }
+#project-printer .paper-intro { margin:0; padding:20px 0 0; }
+#project-printer .paper-entry { position:relative; padding:25px 0 23px; border-bottom:1px dashed #8c9989; }
+#project-printer .entry-label { margin:0 0 10px; color:#52645d; font-size:15px; line-height:1.5; }
+#project-printer .paper-entry p { margin:0 0 14px; }
+#project-printer .paper-entry .entry-label { margin-bottom:10px; }
+#project-printer .entry-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px; }
+#project-printer .fold-line { position:relative; height:9px; margin-inline:-15px; background:linear-gradient(0deg,#fff3,transparent 45%,#7b735b10 48%,transparent 60%); pointer-events:none; }
+#project-printer .end-note { padding-top:23px; color:#52645d; }
+#project-printer .end-note p { margin:5px 0; }
+#project-printer .end-note .stamp-link { margin-top:6px; }
+
+/* The paper scrolls normally; the physical printer stays at its exit. */
+#project-printer .printer { position:fixed; z-index:2; left:50%; bottom:14px; width:min(calc(100% - 44px),840px); padding:14px 16px 11px; transform:translateX(-50%); border:1px solid #848974; border-radius:6px 6px 10px 10px; color:#273b32; background:repeating-linear-gradient(90deg,#8c835e09 0px,#8c835e09 1px,transparent 1px,transparent 4px),linear-gradient(115deg,#dedcc4,#c8cbb4 60%,#adb79f); box-shadow:inset 0 2px 1px #f9f6de,inset 0 -2px 1px #9da78d,0 5px 0 #747f67,0 9px 12px #0005; }
+#project-printer .output-slot { position:absolute; top:-7px; left:15px; right:15px; height:11px; border:2px solid #929e87; border-radius:3px; background:#16271c; box-shadow:inset 0 2px 2px #061009,0 1px #e1e7cd; pointer-events:none; }
+#project-printer .output-slot::before { content:""; position:absolute; top:2px; left:8%; right:8%; height:3px; background:repeating-linear-gradient(90deg,#4c5d44 0px,#4c5d44 3px,#192b1c 3px,#192b1c 6px); background-position-x:var(--roller,0px); }
+#project-printer .mechanism { position:relative; height:31px; margin:0 0 9px; border:3px ridge #94a28b; border-radius:4px; overflow:hidden; background:linear-gradient(150deg,#304c43,#182c23); box-shadow:inset 0 2px 5px #09170b,0 1px #e2e5cc; pointer-events:none; }
+#project-printer .mechanism::before { content:""; position:absolute; top:11px; left:0; right:0; height:4px; background:linear-gradient(#cad3b4,#647d5d 45%,#93ac8d 70%,#2d4731); }
+#project-printer .mechanism::after { content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 0 27%,#acc9ae18 28% 34%,transparent 35% 73%,#d0e0c522 74% 77%,transparent 78%); box-shadow:inset 0 0 8px #0c1a10; }
+#project-printer .print-head { position:absolute; top:1px; left:0; width:33px; height:22px; border:1px solid #93a883; border-top:2px solid #b1bea1; border-bottom:3px solid #cfb679; border-radius:2px; background:repeating-linear-gradient(90deg,#203624 0px,#203624 2px,#3f5739 2px,#3f5739 4px); transform:translateX(var(--head,12px)); box-shadow:2px 2px 3px #0007; }
+#project-printer .front-panel { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+#project-printer .device-label { display:grid; gap:3px; padding-left:4px; color:#384e3b; }
+#project-printer .device-label strong { font:600 11px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:1px; text-shadow:0 1px #f1f0d8; }
+#project-printer .status { display:flex; align-items:center; gap:8px; font:11px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+#project-printer .status-light { width:5px; height:5px; flex-shrink:0; border-radius:50%; background:#4d7040; box-shadow:0 0 0 1px #2b4b2b,inset 0 1px #bdd8a0; }
+#project-printer .printing .status-light { background:#dfb541; box-shadow:0 0 0 1px #796227,0 0 3px #ecca7080; }
+#project-printer .case-screw { position:absolute; bottom:10px; width:5px; height:5px; border-radius:50%; background:linear-gradient(135deg,#ebebd3,#78876a); box-shadow:0 0 0 1px #93a084; pointer-events:none; }
+#project-printer .case-screw::after { content:""; position:absolute; left:0; right:0; top:2px; height:1px; transform:rotate(-35deg); background:#546447; }
+#project-printer .case-screw.left { left:7px; }
+#project-printer .case-screw.right { right:7px; }
+#project-printer .feed-station { display:flex; align-items:center; gap:8px; flex-shrink:0; padding:4px 6px 6px; border:1px solid #667e71; border-radius:3px; background:linear-gradient(120deg,#7b9385,#536e62); box-shadow:inset 1px 1px 3px #263e3240,0 1px #eef0d8; }
+#project-printer .feed-label { color:#f1efda; padding:0 2px; font:600 10px/1.35 Arial,sans-serif; letter-spacing:1px; text-shadow:0 -1px #435c49; }
+#project-printer .feed { display:inline-flex; align-items:center; justify-content:center; min-height:38px; flex-shrink:0; padding:8px 12px; border:1px solid #707d65; border-top-color:#d5d9bd; border-bottom-color:#6c795d; border-radius:3px; background:linear-gradient(165deg,#f2eed8 0%,#e6e5c8 32%,#c5ceb0 100%); color:#293e30; box-shadow:0 3px 0 #354e3d,0 4px 3px #253c3466,inset 0 1px #fffde8,inset 1px 0 #f2f3d9,inset -1px -1px #b3be9d; font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.15px; text-transform:uppercase; text-shadow:0 1px #f6f3de; }
+#project-printer .feed:hover { background:linear-gradient(165deg,#fffbe3,#efeed6 35%,#d3dabf); }
+#project-printer .feed:active { transform:translateY(2px); background:linear-gradient(165deg,#dedfc5,#c9d0b5); box-shadow:0 1px 0 #354e3d,inset 0 1px 3px #7b886340; }
+#project-printer .feed:disabled { color:#5c6954; background:#c8cfb6; box-shadow:0 1px #354e3d; cursor:default; transform:translateY(2px); }
+#project-printer a:focus-visible,#project-printer button:focus-visible,#project-printer summary:focus-visible,#project-printer .table-scroll:focus-visible { outline:2px dashed #155495; outline-offset:5px; }
+
+#project-printer .markdown { font:700 20px/1.55 'Printer DotMatrix',monospace; }
+#project-printer .markdown > :first-child { margin-top:0; }
+#project-printer .markdown > :last-child { margin-bottom:0; }
+#project-printer .markdown :is(h1,h2,h3,h4,h5,h6) { margin:1.2em 0 .5em; font-family:'Printer DotMatrix',monospace; font-weight:700; line-height:1.35; letter-spacing:0; }
+#project-printer .markdown h1 { font-size:32px; }
+#project-printer .markdown h2 { font-size:28px; }
+#project-printer .markdown h3 { font-size:25px; }
+#project-printer .markdown h4 { font-size:23px; }
+#project-printer .markdown h5 { font-size:21px; text-transform:uppercase; }
+#project-printer .markdown h6 { font-size:20px; text-decoration:underline dotted; text-underline-offset:5px; }
+#project-printer .markdown strong { text-shadow:.35px 0 currentColor,-.35px 0 currentColor; }
+#project-printer .markdown em { font-style:italic; }
+#project-printer .markdown del { text-decoration-thickness:2px; }
+#project-printer .markdown :is(ul,ol) { margin:14px 0; padding-left:1.6em; }
+#project-printer .markdown li { margin:.3em 0; padding-left:.15em; }
+#project-printer .markdown li :is(ul,ol) { margin:.3em 0; }
+#project-printer .markdown .task-list { list-style:none; padding-left:1.4em; }
+#project-printer .markdown .task-list-item { position:relative; }
+#project-printer .markdown .task-list-item input { appearance:none; -webkit-appearance:none; position:absolute; left:-1.4em; top:.27em; margin:0; width:.9em; height:.9em; font:inherit; border:2px dotted var(--ink); border-radius:0; opacity:1; background:none; }
+#project-printer .markdown .task-list-item input:checked::after { content:'x'; position:absolute; left:0; top:-.47em; color:var(--ink); }
+#project-printer .markdown blockquote { margin:18px 0; padding:3px 0 3px 16px; border-left:3px dotted #718276; }
+#project-printer .markdown blockquote > :last-child { margin-bottom:0; }
+#project-printer .markdown hr { margin:26px 0; border:0; border-top:2px dotted #8c9989; }
+#project-printer .markdown :is(code,kbd,samp) { font:inherit; font-size:.9em; padding:1px 4px; border:1px dotted #8c9989; background:#648d640c; box-decoration-break:clone; }
+#project-printer .markdown pre,#project-printer .markdown .highlight { max-width:100%; overflow-x:auto; }
+#project-printer .markdown pre { margin:18px 0; padding:12px; border:2px dotted #8c9989; background:#648d640c; font:700 18px/1.5 'Printer DotMatrix',monospace; overflow-wrap:normal; tab-size:4; }
+#project-printer .markdown pre code { padding:0; border:0; background:none; font:inherit; }
+#project-printer .markdown pre :is(span,a) { color:inherit; font:inherit; background:none; }
+#project-printer .markdown .table-scroll { max-width:100%; overflow-x:auto; margin:18px 0; scrollbar-color:#8c9989 #fbf8ec; }
+#project-printer .markdown table { width:100%; min-width:360px; border-collapse:collapse; font:inherit; font-size:18px; overflow-wrap:normal; }
+#project-printer .markdown th,#project-printer .markdown td { padding:9px 12px; border:1px dotted #8c9989; text-align:left; vertical-align:top; }
+#project-printer .markdown th { background:#648d640c; text-shadow:.35px 0 currentColor; }
+#project-printer .markdown img { display:block; margin:18px 0; max-width:100%; height:auto; padding:5px; border:1px dotted #8c9989; }
+/* Halftone ink dots, slight ink spread, and a faint ribbon pass every eight pixels. */
+.print-effects { position:absolute; pointer-events:none; }
+#project-printer .markdown img:not(.full-color) {
+ filter:url(#ribbon-print);
+ mix-blend-mode:multiply;
+ opacity:.95;
+ mask-image:repeating-linear-gradient(to bottom,#000 0 7px,#000e 7px 8px);
+}
+
+#project-printer .markdown dt { margin-top:14px; text-shadow:.35px 0 currentColor; }
+#project-printer .markdown dd { margin:5px 0 14px 1.4em; }
+#project-printer .markdown abbr[title] { text-decoration:underline dotted; text-underline-offset:4px; cursor:help; }
+#project-printer .markdown .footnote { margin-top:24px; font-size:18px; }
+#project-printer .markdown .footnote p { font-size:18px; }
+#project-printer .markdown sup { font-size:.75em; line-height:0; }
+#project-printer .markdown details { margin:18px 0; padding:12px 0; border-block:2px dotted #8c9989; }
+#project-printer .markdown summary { color:var(--link); cursor:pointer; text-decoration:underline dotted; text-underline-offset:4px; }
+#project-printer .markdown details[open] summary { margin-bottom:14px; }
+@media(max-width:520px) {
+ .site-shell { width:calc(100% - 16px); margin-top:8px; }
+ #project-printer .bench { padding:10px 8px 13px; }
+ #project-printer .sheet { width:calc(100% - 8px); padding:23px 28px var(--printer-clearance,190px); }
+ #project-printer .sheet::before,#project-printer .sheet::after { width:17px; background:radial-gradient(ellipse 3px 4px at 8px 10px,var(--desk) 96%,transparent 100%) 0 0/17px 26px repeat-y; }
+ #project-printer h1 { font-size:30px; line-height:1.25; }
+ #project-printer h2 { font-size:26px; }
+ #project-printer .printer { width:calc(100% - 24px); bottom:10px; padding:13px 12px 11px; }
+ #project-printer .mechanism { height:30px; }
+ #project-printer .device-label { padding-left:3px; }
+ #project-printer .status { gap:6px; }
+}
+@media(max-width:420px) {
+ #project-printer .feed-label { display:none; }
+ #project-printer .feed { padding:8px 10px; }
+ #project-printer .feed-station { gap:0; }
+}
+@media(pointer:coarse) { #project-printer .feed { min-height:44px; } }
+@media(prefers-reduced-motion:reduce) { #project-printer .print-head { transform:translateX(12px); } }
+@media print {
+ body { background:white; }
+ #project-printer .printer,.skip-link { display:none !important; }
+ .site-shell { max-width:none; margin:0; }
+ #project-printer .bench { padding:0; background:none; }
+ #project-printer .sheet { width:100%; box-shadow:none; padding-bottom:20px; }
+ #project-printer .table-scroll,#project-printer .markdown pre { overflow:visible; white-space:pre-wrap; }
+}
