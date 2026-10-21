@@ -18,21 +18,27 @@ class ContentWorkflowTests(unittest.TestCase):
         self.root.mkdir()
         for name in ['assets', 'content', 'templates']:
             shutil.copytree(source / name, self.root / name)
+        # Use fixed test projects so editing the real portfolio never breaks the checks.
+        projects = self.root / 'content/projects'
+        for path in projects.glob('*.md'):
+            path.unlink()
+        for name in ['010-first-project', '030-third-project', '050-removable-project']:
+            (projects / (name + '.md')).write_text('+++\ntitle="A project"\ncategory="Software"\n[[links]]\nlabel="Open"\nurl="https://example.com/"\n+++\nA description.')
         self.output = Path(self.temporary.name) / 'public'
 
     def html(self):
         return (self.output / 'index.html').read_text()
 
     def test_drop_in_markdown_file_adds_project_links_markdown_and_image(self):
-        self.assertEqual(build(self.root, self.output), 6)
+        self.assertEqual(build(self.root, self.output), 3)
         template = (self.root / 'content/project-template.md').read_text()
         body = template.replace('My new project', 'A new circuit').replace('Write a short description here.', 'A **working** circuit.')+ '\n\n![A circuit](/images/circuit.svg)'
         (self.root / 'content/projects/015-a-new-circuit.md').write_text(body)
         (self.root / 'content/images/circuit.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg"/>')
-        self.assertEqual(build(self.root, self.output), 7)
+        self.assertEqual(build(self.root, self.output), 4)
         html = self.html()
-        self.assertLess(html.index('id="k2-midi-viewer"'), html.index('id="a-new-circuit"'))
-        self.assertLess(html.index('id="a-new-circuit"'), html.index('id="keyboard-keyboard"'))
+        self.assertLess(html.index('id="first-project"'), html.index('id="a-new-circuit"'))
+        self.assertLess(html.index('id="a-new-circuit"'), html.index('id="third-project"'))
         self.assertIn('A <strong>working</strong> circuit.', html)
         self.assertIn('src="/images/circuit.svg"', html)
         self.assertTrue((self.output / 'images/circuit.svg').is_file())
@@ -55,11 +61,11 @@ class ContentWorkflowTests(unittest.TestCase):
     def test_draft_and_removed_files_are_not_published(self):
         path = self.root / 'content/projects/070-secret-draft.md'
         path.write_text('+++\ndraft=true\n+++\nNot ready yet')
-        self.assertEqual(build(self.root, self.output), 6)
+        self.assertEqual(build(self.root, self.output), 3)
         self.assertNotIn('Not ready yet', self.html())
-        (self.root / 'content/projects/060-angular-for-zed.md').unlink()
-        self.assertEqual(build(self.root, self.output), 5)
-        self.assertNotIn('id="angular-for-zed"', self.html())
+        (self.root / 'content/projects/050-removable-project.md').unlink()
+        self.assertEqual(build(self.root, self.output), 2)
+        self.assertNotIn('id="removable-project"', self.html())
 
     def test_settings_and_titles_are_escaped_while_markdown_still_formats(self):
         path = self.root / 'content/projects/070-special-characters.md'

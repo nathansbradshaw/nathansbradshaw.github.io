@@ -1,6 +1,6 @@
 +++
 title = "K2 MIDI Viewer"
-category = "Music + software"
+category = "Synthphone-E / MIDI viewer"
 
 [[links]]
 label = "Open website"

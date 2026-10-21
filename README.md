@@ -65,7 +65,8 @@ page template; CSS selects a finer dot pattern on small screens. Original image 
 `class="full-color"` to its Markdown image attributes.
 
 The Keyboard Keyboard photo comes from the presentation's project-owned photos;
-the Seahorse photo comes from its project README. The K2, program builder, and
+the Seahorse photo comes from its project README. The Synthphone-E photo is
+the existing cutout from the presentation, preserving the original photo pixels. The K2, program builder, and
 TOA images are screenshots of the actual apps. All images are stored in this
 repository, so the page doesn't depend on another site's image hosting.
 
