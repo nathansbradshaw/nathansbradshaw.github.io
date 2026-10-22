@@ -40,6 +40,9 @@ jobs:
       - name: Build page from content files
         run: python scripts/build.py
 
+      - name: Exclude the local rebuild marker from deployment
+        run: rm _site/.site-build
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 

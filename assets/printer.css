@@ -1,20 +1,23 @@
 @font-face { font-family:"Printer DotMatrix"; font-weight:700; font-style:normal; font-display:swap; src:url("DotMatrix-Bold.woff2") format("woff2"); }
 @font-face { font-family:"Printer DotMatrix"; font-weight:700; font-style:italic; font-display:swap; src:url("DotMatrix-BoldItalic.woff2") format("woff2"); }
 
-html { background:#303d38; scroll-padding-bottom:var(--printer-clearance,190px); }
-body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#697c6819 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#697c6819 23px 24px),#303d38; }
+html { height:100%; background:#303d38; scroll-padding-bottom:var(--printer-clearance,190px); }
+body { height:100%; overflow:hidden; margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#697c6819 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,#697c6819 23px 24px),#303d38; }
 [hidden] { display:none !important; }
 .site-shell { width:100%; max-width:860px; margin:16px auto 0; }
 .skip-link { position:absolute; top:8px; left:8px; z-index:10; padding:12px; color:#155495; background:#fbf8ec; transform:translateY(-160%); }
 .skip-link:focus { transform:none; }
-#project-printer { --desk:#303d38; --desk-line:#697c6819; --paper:#fbf8ec; --ink:#182824; --link:#155495; --stripe:#648d640c;
- --plastic-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23808080' filter='url(%23g)' opacity='.25' d='M0 0h160v160H0z'/%3E%3C/svg%3E");
+#project-printer { --desk:#303d38; --desk-line:#697c6819; --paper:#fbf8ec; --ink:#182824; --link:#155495; --stripe:#648d640c; --printer-clearance:calc(25dvh + 60px); --matrix-machine-width:min(calc(100vw + 24px),850px);
  --paper-grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.68 .2' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Cpath fill='%23808080' filter='url(%23p)' opacity='.055' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
 }
 #project-printer * { box-sizing:border-box; }
-#project-printer .bench { padding:13px 13px 16px; border-radius:5px; background:repeating-linear-gradient(0deg,transparent 0 23px,var(--desk-line) 23px 24px),repeating-linear-gradient(90deg,transparent 0 23px,var(--desk-line) 23px 24px),linear-gradient(110deg,#435247,var(--desk)); }
-#project-printer .paper-window { position:relative; clip-path:inset(-8px -12px var(--paper-hidden,0px) -12px); }
-#project-printer .sheet { position:relative; width:calc(100% - 24px); margin:0 auto; padding:26px 43px var(--printer-clearance,190px); color:var(--ink); background-color:var(--paper); background-image:linear-gradient(90deg,#b4ab8620,transparent 25px,transparent calc(100% - 25px),#b4ab861a),var(--paper-grain),repeating-linear-gradient(0deg,transparent 0 27px,var(--stripe) 27px 55px); box-shadow:0 2px 9px #0005; font:700 20px/1.55 'Printer DotMatrix',monospace; font-synthesis:none; overflow-wrap:anywhere; }
+#project-printer .bench { padding:0; }
+/* The viewport clips native scrolling; its edge never waits on a scroll handler. */
+#project-printer .paper-window { position:fixed; inset:0; z-index:1; overflow-x:hidden; overflow-y:auto; overscroll-behavior-y:none; scroll-padding-bottom:var(--printer-clearance,190px); clip-path:polygon(0 0,100% 0,100% 100%,calc(100% - 18px) 100%,calc(100% - 18px) var(--paper-exit-y,75vh),0 var(--paper-exit-y,75vh)); }
+#project-printer .paper-window:focus-visible { outline:0; }
+#project-printer .paper-window:focus-visible .sheet { outline:1px dotted #4b695b; outline-offset:3px; }
+#project-printer .paper-content { width:calc(100% - 26px); max-width:834px; margin:0 auto; padding:29px 0 16px; }
+#project-printer .sheet { position:relative; width:calc(var(--matrix-machine-width) * .69); left:calc(var(--matrix-machine-width) * -.015); margin:0 auto; padding:26px 35px var(--printer-clearance,190px); color:var(--ink); background-color:var(--paper); background-image:linear-gradient(90deg,#b4ab8620,transparent 25px,transparent calc(100% - 25px),#b4ab861a),var(--paper-grain),repeating-linear-gradient(0deg,transparent 0 27px,var(--stripe) 27px 55px); box-shadow:0 2px 9px #0005; font:700 20px/1.55 'Printer DotMatrix',monospace; font-synthesis:none; overflow-wrap:anywhere; }
 #project-printer .sheet::before,#project-printer .sheet::after { content:""; position:absolute; top:0; bottom:0; width:23px; border-inline-end:1px dashed #afa98c77; background:radial-gradient(ellipse 3.5px 4.5px at 11px 12px,var(--desk) 96%,transparent 100%) 0 0/23px 29px repeat-y; pointer-events:none; }
 #project-printer .sheet::before { left:0; }
 #project-printer .sheet::after { right:0; transform:scaleX(-1); }
@@ -39,53 +42,31 @@ body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#6
 #project-printer .end-note p { margin:5px 0; }
 #project-printer .end-note .stamp-link { margin-top:6px; }
 
-/* A stationary case; the printout disappears into the platen above it. */
-#project-printer .printer {
- position:fixed; z-index:2; left:50%; bottom:17px;
- width:min(calc(100% - 40px),850px); padding:19px 23px 17px;
- transform:translateX(-50%); border:1px solid #8a8977; border-top-color:#f5efda;
- border-radius:11px 11px 15px 15px; color:#333d35;
- background:
-  radial-gradient(ellipse at 6% 12%,#a8945430,transparent 40%),
-  radial-gradient(ellipse at 92% 80%,#7c755b30,transparent 35%),
-  linear-gradient(177deg,#e9e3cd 0%,#d3cfb7 45%,#c3c0a8 47%,#dedac2 50%,#c9c5ad 94%,#a7a48d);
- box-shadow:inset 0 2px 2px #fff9e3,inset 2px 0 2px #f4edd3,inset -2px 0 2px #7d7e6a50,
-  inset 0 -4px 2px #91917a,0 5px 0 #686f5d,0 11px 0 -3px #202b24,0 16px 24px #09120cb0;
-}
-#project-printer .printer::before { content:""; position:absolute; left:28px; right:28px; bottom:-9px; height:10px; border-radius:0 0 5px 5px; background:linear-gradient(#101a14,#344133); box-shadow:0 4px 7px #0005; z-index:-1; }
-#project-printer .printer::after { content:""; position:absolute; inset:1px; border-radius:inherit; background-image:var(--plastic-grain); mix-blend-mode:multiply; opacity:.5; pointer-events:none; }
-#project-printer .output-slot { position:absolute; top:-8px; left:19px; right:19px; height:15px; border:1px solid #555e4e; border-top:3px solid #b6b9a1; border-bottom:2px solid #efead2; border-radius:5px; background:linear-gradient(#050d08,#19291d 35%,#384934 65%,#131f16); box-shadow:0 -2px 1px #24302450,inset 0 2px 3px #000,0 2px 1px #818970; pointer-events:none; }
-#project-printer .output-slot::before { content:""; position:absolute; top:2px; left:2px; right:2px; height:6px; border-radius:3px; background:repeating-linear-gradient(90deg,#263429 0 2px,#15251a 2px 4px); background-position-x:var(--roller,0px); box-shadow:inset 0 1px #57655280,inset 0 -2px #08120b; }
-#project-printer .paper-guide { position:absolute; top:-5px; width:12px; height:17px; border:1px solid #555c4a; border-radius:2px 2px 0 0; background:linear-gradient(90deg,#84927b,#c2c8ae 45%,#6e7d62); box-shadow:1px 1px 2px #0008,inset 1px 0 #e7e8cf; }
-#project-printer .paper-guide.left { left:1px; }
-#project-printer .paper-guide.right { right:1px; }
-#project-printer .cutter { display:none; }
-#project-printer .mechanism { position:relative; height:47px; margin:0 0 14px; border:1px solid #4c5548; border-top:3px solid #8c9480; border-bottom:3px solid #f3ecd5; border-radius:7px 7px 4px 4px; overflow:hidden; background:linear-gradient(176deg,#18231d,#3a4938 35%,#19271e 38%,#101c15 85%,#354432); box-shadow:0 0 0 2px #b3b79e,inset 0 3px 8px #000b; pointer-events:none; }
-#project-printer .mechanism::before { content:""; position:absolute; top:21px; left:0; right:0; height:5px; background:linear-gradient(#e9eee0,#b2bba9 23%,#f1f4e5 40%,#677663 70%,#19291b); box-shadow:0 3px 4px #0009; }
-#project-printer .mechanism::after { content:""; position:absolute; inset:0; border-top:1px solid #dce3cf30; background:linear-gradient(113deg,transparent 0 22%,#dce9d111 23% 34%,transparent 35% 71%,#d6e7cf1c 72% 73%,transparent 74%),linear-gradient(#cbdac022,transparent 55%,#09130c30); box-shadow:inset 0 0 9px #0a160b; }
-#project-printer .carriage-belt { position:absolute; top:9px; left:0; right:0; height:5px; background:repeating-linear-gradient(90deg,#090f0a 0 2px,#62715b 2px 3px); box-shadow:0 1px #77866b60; }
-#project-printer .ribbon { position:absolute; bottom:3px; left:0; right:0; height:8px; background:linear-gradient(#161915,#31362a 50%,#070e08); box-shadow:0 -1px #7c85624d; }
-#project-printer .print-head { position:absolute; top:3px; left:0; width:43px; height:35px; border:1px solid #19231a; border-top:3px solid #adb39c; border-bottom:4px solid #9b8c63; border-radius:4px 4px 2px 2px; background:repeating-linear-gradient(90deg,#283227 0 3px,#78816a 3px 4px,#3f4b38 4px 6px); transform:translateX(var(--head,12px)); box-shadow:3px 4px 3px #0009,inset 0 2px #e5e5c845; }
-#project-printer .print-head::after { content:""; position:absolute; bottom:-7px; left:15px; width:9px; height:5px; background:linear-gradient(90deg,#5a5846,#e0d2a5,#655d44); border-radius:0 0 2px 2px; }
-#project-printer .platen-knob { position:absolute; right:-10px; top:20px; width:17px; height:43px; border:1px solid #616650; border-radius:5px 9px 9px 5px; background:repeating-linear-gradient(0deg,transparent 0 2px,#242e1e88 2px 3px),linear-gradient(90deg,#b9bba1,#666f56 35%,#a1ab8c 70%,#4b5941); box-shadow:inset 1px 0 #e0e0c5,2px 3px 3px #0006; pointer-events:none; }
-#project-printer .case-vents { position:absolute; left:32%; bottom:22px; width:18%; height:13px; border-radius:1px; background:repeating-linear-gradient(90deg,#70785e 0 2px,#f2ead14d 2px 3px,transparent 3px 6px); opacity:.75; pointer-events:none; }
-#project-printer .front-panel { position:relative; display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:3px; }
-#project-printer .device-label { display:grid; gap:7px; padding-left:6px; color:#434f3d; }
-#project-printer .device-label strong { font:700 12px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:1.8px; text-shadow:0 1px #fbf2d6; }
+/* The back cover sits behind the paper; the photographed front occludes it. */
+#project-printer .printer-frame { position:fixed; left:50%; bottom:-12px; width:var(--matrix-machine-width); aspect-ratio:3; transform:translateX(-50%); pointer-events:none; --paper-exit:42%; }
+#project-printer .printer-rear { z-index:0; }
+#project-printer .printer { z-index:2; }
+#project-printer .case-photo { position:absolute; inset:0; display:block; }
+#project-printer .case-image { display:block; width:100%; height:100%; object-fit:fill; }
+#project-printer .printer-rear .case-photo { clip-path:inset(0 0 calc(100% - var(--paper-exit)) 0); }
+#project-printer .printer .case-photo { clip-path:inset(var(--paper-exit) 0 0 0); filter:drop-shadow(0 6px 5px #08100970); }
+#project-printer .head-track { position:absolute; left:13%; right:17%; top:55%; height:18%; overflow:hidden; }
+#project-printer .writer-head { position:absolute; width:14%; height:auto; bottom:0; animation:carriage-scan .8s linear infinite alternate; animation-play-state:paused; }
+#project-printer .printing .writer-head { animation-play-state:running; }
+@keyframes carriage-scan { from { transform:translateX(0); } to { transform:translateX(var(--head-travel,0px)); } }
+@media(prefers-reduced-motion:reduce) { #project-printer .writer-head { animation:none; transform:translateX(calc(var(--head-travel,0px) / 2)); } }
+#project-printer .output-slot { position:absolute; left:14%; right:17%; top:var(--paper-exit); height:0; }
+#project-printer .front-panel { position:absolute; inset:0; }
+#project-printer .device-label { position:absolute; left:9%; bottom:15%; display:grid; gap:1px; color:#393a31; }
+#project-printer .device-label strong { font:600 clamp(8px,1.1vw,11px)/1.2 Arial,sans-serif; letter-spacing:1.4px; }
 #project-printer .receipt-label { display:none; }
-#project-printer .status { display:flex; align-items:center; gap:8px; font:11px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-#project-printer .status-light { width:6px; height:6px; flex-shrink:0; border:1px solid #34452a; border-radius:50%; background:radial-gradient(circle at 35% 30%,#c2dea2,#6b914a 40%,#3e5e2d); box-shadow:0 0 0 1px #a7ad8b,inset 0 -1px 2px #173713; }
-#project-printer .printing .status-light { background:#e0ba45; box-shadow:0 0 0 1px #796227,0 0 5px #ecca7080; }
-#project-printer .case-screw { position:absolute; bottom:10px; width:6px; height:6px; border:1px solid #7a806c; border-radius:50%; background:linear-gradient(135deg,#c9cdba,#7c8571); box-shadow:0 1px #faf0d3,inset 0 1px #eff1d6; pointer-events:none; }
-#project-printer .case-screw::after { content:""; position:absolute; left:0; right:0; top:2px; height:1px; transform:rotate(-35deg); background:#4d5945; box-shadow:0 1px #d9dfc380; }
-#project-printer .case-screw.left { left:9px; }
-#project-printer .case-screw.right { right:9px; transform:rotate(70deg); }
-#project-printer .feed-station { display:flex; align-items:center; gap:10px; flex-shrink:0; padding:5px 7px 7px; border:1px solid #8a8c76; border-top-color:#6f7965; border-bottom-color:#f0e9cf; border-radius:5px; background:linear-gradient(135deg,#b3b7a0,#c8c9af); box-shadow:inset 1px 2px 4px #49574150; }
-#project-printer .feed-label { color:#4c5943; padding:0 2px; font:700 9px/1.45 Arial,sans-serif; letter-spacing:1px; text-shadow:0 1px #e9e8cd; }
-#project-printer .feed { display:inline-flex; align-items:center; justify-content:center; min-height:40px; flex-shrink:0; padding:8px 13px; border:1px solid #5c6954; border-top-color:#e9e7cb; border-radius:4px; background:linear-gradient(175deg,#e8e9d0 0%,#d7ddc2 45%,#adb99a 100%); color:#2c3e2b; box-shadow:0 3px 0 #47573e,0 5px 4px #253c3455,inset 0 1px #ffffe6,inset 1px 0 #f2f3d9,inset -1px -1px #a5b28c; font:600 12px/1.4 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:.15px; text-transform:uppercase; text-shadow:0 1px #f6f3de; cursor:pointer; }
-#project-printer .feed:hover { background:linear-gradient(175deg,#faf8df,#e8ebd1 45%,#c2ceaa); }
-#project-printer .feed:active { transform:translateY(2px); background:linear-gradient(175deg,#d1d7b9,#bbc7a4); box-shadow:0 1px 0 #47573e,inset 0 1px 3px #7b886340; }
-#project-printer .feed:disabled { color:#617057; background:#c8cfb6; box-shadow:0 1px #47573e; cursor:default; transform:translateY(2px); }
+#project-printer .status { display:flex; align-items:center; gap:7px; font:clamp(8px,1vw,10px)/1.3 Arial,sans-serif; }
+#project-printer .status-light { width:4px; height:4px; border-radius:50%; background:#637548; box-shadow:0 0 0 1px #39412d,inset 0 1px #bec79b; }
+#project-printer .printing .status-light { background:#d3a848; }
+#project-printer .feed { position:absolute; left:70.5%; top:72.5%; width:18%; height:13%; min-height:38px; padding:0 5px; border:0; border-radius:5px; background:transparent; color:#30312b; font:700 11px/1.2 Arial,sans-serif; text-transform:uppercase; letter-spacing:.2px; cursor:pointer; pointer-events:auto; }
+#project-printer .feed:hover { background:#fff5d914; }
+#project-printer .feed:active { color:#151b13; background:#282d1c12; transform:translateY(1px); }
+#project-printer .feed:disabled { opacity:.55; cursor:default; }
 #project-printer a:focus-visible,#project-printer button:focus-visible,#project-printer summary:focus-visible,#project-printer .table-scroll:focus-visible { outline:2px dashed #155495; outline-offset:5px; }
 
 #project-printer .markdown { font:700 20px/1.55 'Printer DotMatrix',monospace; }
@@ -139,23 +120,24 @@ body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#6
 #project-printer .markdown details { margin:18px 0; padding:12px 0; border-block:2px dotted #8c9989; }
 #project-printer .markdown summary { color:var(--link); cursor:pointer; text-decoration:underline dotted; text-underline-offset:4px; }
 #project-printer .markdown details[open] summary { margin-bottom:14px; }
-/* A narrow roll and a compact thermal printer replace the tractor feed on phones. */
+/* Crop the case wings on phones so the receipt uses the available width.
+   The paper and the photographed slot share the same machine measurement. */
 @media(max-width:600px) {
  .site-shell { width:calc(100% - 16px); max-width:440px; margin-top:15px; }
- #project-printer { --paper:#faf9f3; --ink:#272c29; --link:#185079; }
- #project-printer .bench { padding:0 9px 14px; background:none; }
- #project-printer .sheet { width:calc(100% - 24px); padding:25px 20px var(--printer-clearance,190px); background-image:linear-gradient(90deg,#d3cfc033,transparent 9px,transparent calc(100% - 8px),#c9c6b933),var(--paper-grain); box-shadow:0 0 0 1px #e8e4d14d,2px 3px 10px #08140c60; font:600 16px/1.65 'Courier New',Courier,monospace; }
+ #project-printer { --paper:#faf9f3; --ink:#272c29; --link:#185079; --receipt-machine-width:min(calc(100vw + 60px),620px); }
+ #project-printer .paper-content { width:100%; max-width:none; padding:10px 0 10px; }
+ #project-printer .sheet { width:calc(var(--receipt-machine-width) * .74); max-width:none; left:0; padding:18px 14px var(--printer-clearance,190px); background-image:linear-gradient(90deg,#d3cfc033,transparent 9px,transparent calc(100% - 8px),#c9c6b933),var(--paper-grain); box-shadow:0 0 0 1px #e8e4d14d,2px 3px 10px #08140c60; font:600 15px/1.65 'Courier New',Courier,monospace; }
  #project-printer .sheet::before { top:-5px; bottom:auto; left:0; width:100%; height:6px; border:0; background:linear-gradient(135deg,transparent 50%,var(--paper) 51%) 0 0/8px 8px repeat-x,linear-gradient(225deg,transparent 50%,var(--paper) 51%) 0 0/8px 8px repeat-x; }
  #project-printer .sheet::after { top:0; right:0; width:3px; border:0; background:linear-gradient(90deg,#e0ddcc44,transparent); transform:none; }
  #project-printer .markdown { font:inherit; }
- #project-printer h1 { font-size:26px; line-height:1.25; letter-spacing:-1px; }
+ #project-printer h1 { font-size:23px; line-height:1.25; letter-spacing:-1px; }
  #project-printer h2 { font-size:22px; line-height:1.35; letter-spacing:-.6px; }
- #project-printer .print-header { padding-bottom:20px; border-color:#8d9186; }
- #project-printer .paper-intro { padding-top:20px; }
- #project-printer .paper-entry { padding:23px 0; border-color:#a4a69b; }
+ #project-printer .print-header { padding-bottom:16px; border-color:#8d9186; }
+ #project-printer .paper-intro { padding-top:16px; }
+ #project-printer .paper-entry { padding:18px 0; border-color:#a4a69b; }
  #project-printer .entry-label { font-size:12px; color:#596057; }
  #project-printer .sheet a.stamp-link { min-height:44px; padding:6px 8px; border-width:1px; font-size:13px; font-weight:700; }
- #project-printer .entry-links { gap:10px; }
+ #project-printer .entry-links { gap:8px; }
  #project-printer .fold-line { display:none; }
  #project-printer .markdown :is(h1,h2,h3,h4,h5,h6) { font-family:inherit; letter-spacing:-.5px; }
  #project-printer .markdown h1 { font-size:26px; }
@@ -167,35 +149,27 @@ body { margin:0; background:repeating-linear-gradient(0deg,transparent 0 23px,#6
  #project-printer .markdown pre { font:inherit; font-size:14px; padding:10px; }
  #project-printer .markdown :is(table,.footnote,.footnote p) { font-size:14px; }
  #project-printer .markdown img:not(.full-color) { filter:url(#ribbon-print-fine); }
- #project-printer .printer { width:min(calc(100% - 24px),418px); bottom:15px; padding:29px 19px 17px; border-color:#131e19; border-top-color:#758275; border-radius:18px 18px 13px 13px; color:#dfe2ce; background:radial-gradient(ellipse at 10% 0,#81907820,transparent 60%),linear-gradient(178deg,#455249,#303c34 27%,#202c25 29%,#3b483e 32%,#303b33 92%,#1b271f); box-shadow:inset 0 2px 1px #b5bba380,inset 2px 0 2px #82937d40,inset -2px 0 3px #060f0980,inset 0 -3px 2px #131f16,0 5px 0 #111c14,0 11px 18px #071009a0; }
- #project-printer .printer::before { bottom:-7px; height:7px; left:18px; right:18px; }
- #project-printer .printer::after { opacity:.65; mix-blend-mode:soft-light; }
- #project-printer .output-slot { top:-7px; left:20px; right:20px; height:15px; border:1px solid #111c14; border-top:3px solid #6b796a; border-bottom:2px solid #4f5e50; border-radius:5px 5px 2px 2px; background:linear-gradient(#050b07,#162118 65%,#020a05); box-shadow:inset 0 2px 2px #000,0 2px 1px #101c13,0 3px #8a99814d; }
- #project-printer .output-slot::before { left:3px; right:3px; background:repeating-linear-gradient(90deg,#111e14 0 2px,#202d21 2px 4px); box-shadow:inset 0 1px #5e705280; }
- #project-printer .cutter { display:block; position:absolute; top:-2px; left:3px; right:3px; height:5px; background:linear-gradient(135deg,#c1c9b4 25%,transparent 26%) 0 0/6px 6px repeat-x,linear-gradient(225deg,#c1c9b4 25%,transparent 26%) 0 0/6px 6px repeat-x; filter:drop-shadow(0 1px #020a05); }
- #project-printer :is(.paper-guide,.mechanism,.platen-knob,.case-vents,.matrix-label,.feed-label) { display:none; }
+ #project-printer .printer-frame { width:var(--receipt-machine-width); aspect-ratio:1.5; bottom:-8px; --paper-exit:61.2%; }
+ #project-printer .output-slot { left:13%; right:13%; }
+ #project-printer .head-track,#project-printer .matrix-label { display:none; }
  #project-printer .receipt-label { display:inline; }
- #project-printer .front-panel { padding:0; gap:9px; }
- #project-printer .device-label { gap:7px; padding:0 0 0 2px; color:#d4dbcb; }
- #project-printer .device-label strong { font-size:11px; letter-spacing:2px; text-shadow:0 -1px #0c170e; }
- #project-printer .status { font-size:10px; color:#c7d0bd; gap:7px; }
- #project-printer .status-light { width:6px; height:6px; border-color:#09210b; background:radial-gradient(circle at 35% 30%,#bfe998,#77b453 45%,#385e2d); box-shadow:0 0 0 1px #0d190f,0 0 5px #9fd77345; }
+ #project-printer .device-label { left:12%; top:auto; bottom:12%; gap:3px; color:#d3d3ca; }
+ #project-printer .device-label strong { font-size:9px; letter-spacing:1.8px; }
+ #project-printer .status { font-size:9px; color:#c3c4ba; }
+ #project-printer .status-light { background:#83a169; box-shadow:0 0 0 1px #151e11; }
+ #project-printer .feed { left:62.5%; top:74%; width:28.5%; height:14%; min-height:44px; font-size:10px; color:#272e2a; }
  #project-printer .printer button:focus-visible { outline-color:#edf0d8; }
- #project-printer .feed-station { gap:0; padding:4px 5px 6px; border:1px solid #111f15; border-bottom-color:#69775f; background:linear-gradient(#17261b,#28372a); box-shadow:inset 0 2px 3px #060f0980; }
- #project-printer .feed { min-height:44px; padding:8px 11px; font-size:10px; border-color:#536448; border-top-color:#c2c8ad; color:#263924; background:linear-gradient(175deg,#e0e4cc,#b6c4a2 60%,#8c9e7c); text-shadow:0 1px #e9efd4; box-shadow:0 3px 0 #0c1c10,0 4px 2px #06120980,inset 0 1px #f2f4dd; }
- #project-printer .feed:hover { background:linear-gradient(#f0f0d9,#d3ddbb); }
- #project-printer .feed:active { box-shadow:0 1px #0c1c10,inset 0 1px 2px #667b52; }
- #project-printer .case-screw { width:5px; height:5px; bottom:9px; border-color:#15251b; background:linear-gradient(135deg,#61715e,#2c3e2e); box-shadow:0 1px #5e6f56; }
- #project-printer .case-screw::after { background:#112016; box-shadow:0 1px #80917140; }
+
 }
 @media(pointer:coarse) { #project-printer .feed { min-height:44px; } }
-@media(prefers-reduced-motion:reduce) { #project-printer .print-head { transform:translateX(12px); } }
 @media print {
+ html,body { height:auto; overflow:visible; }
  body { background:white; }
- #project-printer .printer,.skip-link { display:none !important; }
+ #project-printer .printer,#project-printer .printer-rear,.skip-link { display:none !important; }
  .site-shell { max-width:none; margin:0; }
  #project-printer .bench { padding:0; background:none; }
- #project-printer .sheet { width:100%; box-shadow:none; padding-bottom:20px; }
- #project-printer .paper-window { clip-path:none; }
+ #project-printer .sheet { width:100%; max-width:none; left:0; box-shadow:none; padding-bottom:20px; }
+ #project-printer .paper-window { position:static; overflow:visible; clip-path:none; }
+ #project-printer .paper-content { width:100%; max-width:none; padding:0; }
  #project-printer .table-scroll,#project-printer .markdown pre { overflow:visible; white-space:pre-wrap; }
 }

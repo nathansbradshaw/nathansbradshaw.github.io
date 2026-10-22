@@ -174,12 +174,11 @@ def build(source: Path, output: Path) -> int:
     printer = settings.get('printer')
     if not isinstance(printer, dict):
         raise ContentError(f'{settings_path}: add a [printer] section (see README.md)')
-    for key in ['label', 'receipt_label', 'feed_label', 'next_label', 'next_description', 'ready', 'printing', 'end']:
+    for key in ['label', 'receipt_label', 'next_label', 'next_description', 'ready', 'printing', 'end']:
         values['printer_' + key] = text(printer, key, settings_path)
-    for kind, filename in [('css', 'printer.css'), ('js', 'printer.js')]:
+    for kind, filename in [('css', 'printer.css'), ('js', 'printer.js'), ('impact_photo', 'printer-impact-compact.webp'), ('receipt_photo', 'printer-receipt-compact.webp'), ('head_photo', 'printer-impact-head.webp')]:
         values[kind + '_version'] = hashlib.sha256((source / 'assets' / filename).read_bytes()).hexdigest()[:12]
     values = {key: escape(value, quote=True) for key, value in values.items()}
-    values['printer_feed_label'] = values['printer_feed_label'].replace('\n', '<br>')
     values['intro_html'] = render_markdown((source / 'content/intro.md').read_text(encoding='utf-8'))
     guide_path = source / 'content/style-guide.md'
     guide_meta, guide_body = read_project(guide_path)
@@ -244,7 +243,7 @@ def build(source: Path, output: Path) -> int:
         (staging / 'assets').mkdir()
         (staging / 'style-guide.html').write_text(guide_html, encoding='utf-8')
         (staging / '404.html').write_text(missing_html, encoding='utf-8')
-        for name in ['printer.css', 'printer.js', 'printer.svg', 'DotMatrix-Bold.woff2', 'DotMatrix-BoldItalic.woff2', 'DotMatrix-OFL.txt']:
+        for name in ['printer.css', 'printer.js', 'printer.svg', 'printer-impact-compact.webp', 'printer-receipt-compact.webp', 'printer-impact-head.webp', 'DotMatrix-Bold.woff2', 'DotMatrix-BoldItalic.woff2', 'DotMatrix-OFL.txt']:
             shutil.copy2(source / 'assets' / name, staging / 'assets' / name)
         images = source / 'content/images'
         if images.exists():

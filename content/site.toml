@@ -13,7 +13,6 @@ all_projects_url = "https://github.com/nathansbradshaw?tab=repositories"
 [printer]
 label = "DOT MATRIX"
 receipt_label = "THERMAL"
-feed_label = "PAPER\nFEED"
 next_label = "Next project ↓"
 next_description = "Scroll paper to the next project"
 ready = "Ready"

@@ -58,7 +58,12 @@
   <a class="skip-link" href="#projects">Skip to content</a>
   <main id="project-printer" class="site-shell">
     <div class="bench">
-      <div class="paper-window">
+      <div class="printer-rear printer-frame" aria-hidden="true"><picture class="case-photo" aria-hidden="true">
+          <source media="(max-width: 600px)" srcset="/assets/printer-receipt-compact.webp?v=$receipt_photo_version">
+          <img class="case-image" src="/assets/printer-impact-compact.webp?v=$impact_photo_version" width="2172" height="724" alt="" decoding="async" fetchpriority="high">
+        </picture></div>
+      <div class="paper-window" tabindex="0" role="region" aria-label="Scrollable printout">
+        <div class="paper-content">
         <div class="sheet">
           <header class="print-header">
             <h1>$name</h1>
@@ -74,17 +79,19 @@
             $footer_links_html
           </footer>
         </div>
+        </div>
       </div>
-      <div class="printer" aria-label="Project paper feed" data-ready="$printer_ready" data-printing="$printer_printing" data-end="$printer_end">
-        <div class="output-slot" aria-hidden="true"><i class="paper-guide left"></i><i class="paper-guide right"></i><div class="cutter"></div></div>
-        <div class="mechanism" aria-hidden="true"><div class="carriage-belt"></div><div class="ribbon"></div><div class="print-head"></div></div>
-        <div class="platen-knob" aria-hidden="true"></div>
-        <div class="case-vents" aria-hidden="true"></div>
+      <div class="printer printer-frame" aria-label="Project paper feed" data-ready="$printer_ready" data-printing="$printer_printing" data-end="$printer_end">
+        <picture class="case-photo" aria-hidden="true">
+          <source media="(max-width: 600px)" srcset="/assets/printer-receipt-compact.webp?v=$receipt_photo_version">
+          <img class="case-image" src="/assets/printer-impact-compact.webp?v=$impact_photo_version" width="2172" height="724" alt="" decoding="async" fetchpriority="high">
+        </picture>
+        <div class="head-track" aria-hidden="true"><img class="writer-head" src="/assets/printer-impact-head.webp?v=$head_photo_version" alt="" decoding="async"></div>
+        <div class="output-slot" aria-hidden="true"></div>
         <div class="front-panel">
           <div class="device-label" aria-hidden="true"><strong><span class="matrix-label">$printer_label</span><span class="receipt-label">$printer_receipt_label</span></strong><div class="status"><i class="status-light"></i><span>$printer_ready</span></div></div>
-          <div class="feed-station"><span class="feed-label" aria-hidden="true">$printer_feed_label</span><button class="feed" type="button" hidden aria-label="$printer_next_description">$printer_next_label</button></div>
+          <button class="feed" type="button" hidden aria-label="$printer_next_description">$printer_next_label</button>
         </div>
-        <i class="case-screw left" aria-hidden="true"></i><i class="case-screw right" aria-hidden="true"></i>
       </div>
     </div>
   </main>
