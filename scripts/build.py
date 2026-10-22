@@ -174,7 +174,7 @@ def build(source: Path, output: Path) -> int:
     printer = settings.get('printer')
     if not isinstance(printer, dict):
         raise ContentError(f'{settings_path}: add a [printer] section (see README.md)')
-    for key in ['label', 'feed_label', 'next_label', 'next_description', 'ready', 'printing', 'end']:
+    for key in ['label', 'receipt_label', 'feed_label', 'next_label', 'next_description', 'ready', 'printing', 'end']:
         values['printer_' + key] = text(printer, key, settings_path)
     for kind, filename in [('css', 'printer.css'), ('js', 'printer.js')]:
         values[kind + '_version'] = hashlib.sha256((source / 'assets' / filename).read_bytes()).hexdigest()[:12]

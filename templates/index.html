@@ -45,9 +45,9 @@
           <feFuncB type="discrete" tableValues="0 1"/>
         </feComponentTransfer>
         <feComponentTransfer in="dots" result="ink">
-          <feFuncR type="table" tableValues="0.094 0.984"/>
-          <feFuncG type="table" tableValues="0.157 0.973"/>
-          <feFuncB type="table" tableValues="0.141 0.925"/>
+          <feFuncR type="table" tableValues="0.153 0.980"/>
+          <feFuncG type="table" tableValues="0.173 0.976"/>
+          <feFuncB type="table" tableValues="0.161 0.953"/>
         </feComponentTransfer>
         <feComposite in="ink" in2="SourceGraphic" operator="in" result="print"/>
         <feGaussianBlur in="print" stdDeviation="0.12"/>
@@ -75,11 +75,13 @@
           </footer>
         </div>
       </div>
-      <div class="printer" aria-label="Dot-matrix paper feed" data-ready="$printer_ready" data-printing="$printer_printing" data-end="$printer_end">
-        <div class="output-slot" aria-hidden="true"></div>
-        <div class="mechanism" aria-hidden="true"><div class="print-head"></div></div>
+      <div class="printer" aria-label="Project paper feed" data-ready="$printer_ready" data-printing="$printer_printing" data-end="$printer_end">
+        <div class="output-slot" aria-hidden="true"><i class="paper-guide left"></i><i class="paper-guide right"></i><div class="cutter"></div></div>
+        <div class="mechanism" aria-hidden="true"><div class="carriage-belt"></div><div class="ribbon"></div><div class="print-head"></div></div>
+        <div class="platen-knob" aria-hidden="true"></div>
+        <div class="case-vents" aria-hidden="true"></div>
         <div class="front-panel">
-          <div class="device-label" aria-hidden="true"><strong>$printer_label</strong><div class="status"><i class="status-light"></i><span>$printer_ready</span></div></div>
+          <div class="device-label" aria-hidden="true"><strong><span class="matrix-label">$printer_label</span><span class="receipt-label">$printer_receipt_label</span></strong><div class="status"><i class="status-light"></i><span>$printer_ready</span></div></div>
           <div class="feed-station"><span class="feed-label" aria-hidden="true">$printer_feed_label</span><button class="feed" type="button" hidden aria-label="$printer_next_description">$printer_next_label</button></div>
         </div>
         <i class="case-screw left" aria-hidden="true"></i><i class="case-screw right" aria-hidden="true"></i>

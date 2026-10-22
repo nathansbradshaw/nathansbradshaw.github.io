@@ -119,7 +119,11 @@ computer aren't visible to the website until you put them in this repository.
 ## Design and development
 
 The layout is in `templates/index.html`, styling in `assets/printer.css`, and
-paper-feed behavior in `assets/printer.js`. The builder is `scripts/build.py`.
+paper-feed behavior in `assets/printer.js`. Desktop uses tractor-feed paper and a
+cream dot-matrix printer; screens up to 600px use plain receipt paper and a compact
+thermal printer. Both keep printed content clipped at the paper exit. Plastic and
+paper textures use lightweight SVG grain layered with CSS.
+The builder is `scripts/build.py`.
 Content is rendered into the HTML at build time; the page remains readable if
 JavaScript is unavailable. JavaScript drives the printer and Next project.
 
