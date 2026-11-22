@@ -3,6 +3,10 @@ title = "Keyboard Keyboard"
 category = "Synthphone-E / Keyboard"
 
 [[links]]
+label = "Watch the build"
+url = "https://www.youtube.com/watch?v=jbcCkfIz1OQ"
+
+[[links]]
 label = "Hardware + firmware source"
 url = "https://github.com/UnitedCode/keyboard-keyboard"
 +++

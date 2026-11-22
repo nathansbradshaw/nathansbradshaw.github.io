@@ -3,6 +3,10 @@ title = "Synthphone-E"
 category = "Synthphone-E / Hardware + firmware"
 
 [[links]]
+label = "Watch the build"
+url = "https://www.youtube.com/watch?v=1VQUEm7suBc"
+
+[[links]]
 label = "Watch the talk"
 url = "https://www.youtube.com/watch?v=6v_yg4s-u_g"
 
