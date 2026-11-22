@@ -3,6 +3,10 @@ title = "Synthphone-E"
 category = "Synthphone-E / Hardware + firmware"
 
 [[links]]
+label = "Watch the talk"
+url = "https://www.youtube.com/watch?v=6v_yg4s-u_g"
+
+[[links]]
 label = "Firmware on GitHub"
 url = "https://github.com/UnitedCode/synth-phone-e-v2-rust"
 
