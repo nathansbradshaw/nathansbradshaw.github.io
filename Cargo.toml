@@ -1,0 +1,24 @@
+[package]
+name = "printer-site"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+anyhow = "1.0.100"
+comrak = { version = "0.39.1", default-features = false }
+ego-tree = "0.10"
+regex = "1.12"
+scraper = "0.25"
+sha2 = "0.10.9"
+tempfile = "3.23"
+toml = "0.9"
+url = "2.5"
+
+[profile.dev]
+debug = 0
+incremental = false
+
+[profile.test]
+debug = 0
+incremental = false

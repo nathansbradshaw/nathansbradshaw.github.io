@@ -1,5 +1,6 @@
 .DS_Store
 /_site/
 /.venv/
+/target/
 __pycache__/
 *.pyc

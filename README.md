@@ -73,21 +73,16 @@ repository, so the page doesn't depend on another site's image hosting.
 
 ## Preview locally
 
-Python 3.11 or newer is required. Install the build dependencies once:
-
-```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-```
+Install a current stable Rust toolchain. Cargo downloads the build dependencies.
 
 Build and serve:
 
 ```sh
-.venv/bin/python scripts/build.py
-.venv/bin/python -m http.server 8000 --directory _site
+cargo run --locked -- --serve 8000
 ```
 
-Open http://localhost:8000. After editing content, rebuild and refresh the page.
+Open http://127.0.0.1:8000. After editing content, restart the preview and refresh.
+To build without a server, use `cargo run --locked`.
 The build names the file and field if content is invalid. A failed build leaves
 the last good output alone.
 
@@ -102,11 +97,11 @@ Wide code and tables scroll inside the paper. Task marks reflect the file;
 visitors cannot change them. Raw HTML is trusted author content, not sanitized.
 
 Every build includes `style-guide.html`, linked at the bottom of the homepage.
-Open http://localhost:8000/style-guide.html to inspect all the samples. Edit
+Open `/style-guide.html` on your preview to inspect all the samples. Edit
 `content/style-guide.md` to change the examples or page labels. Next sample
 feeds the paper to the next group of examples.
 
-The site uses Python Markdown with the listed extensions; it does not implement
+The site uses Comrak with image attributes and abbreviations; it does not implement
 GitHub-specific embeds, Mermaid, or mathematical notation.
 
 ## Publish
@@ -123,7 +118,7 @@ paper-feed behavior in `assets/printer.js`. Desktop uses tractor-feed paper and 
 cream dot-matrix printer; screens up to 600px use plain receipt paper and a compact
 thermal printer. Both keep printed content clipped at the paper exit. Plastic and
 paper textures use lightweight SVG grain layered with CSS.
-The builder is `scripts/build.py`.
+The Rust builder is in `src/`.
 Content is rendered into the HTML at build time; the page remains readable if
 JavaScript is unavailable. JavaScript drives the printer and Next project.
 
@@ -133,5 +128,5 @@ The DotMatrix fonts are bundled locally. Their SIL Open Font License is in
 Run the content workflow checks with:
 
 ```sh
-.venv/bin/python -m unittest discover -s tests
+cargo test --locked -j 2
 ```
