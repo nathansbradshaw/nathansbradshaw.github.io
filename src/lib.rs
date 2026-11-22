@@ -487,6 +487,8 @@ pub fn build(source: &Path, output: &Path) -> Result<usize> {
         "title",
         "description",
         "url",
+        "website_url",
+        "website_label",
         "github_url",
         "github_label",
         "projects_heading",
@@ -495,7 +497,10 @@ pub fn build(source: &Path, output: &Path) -> Result<usize> {
         "all_projects_url",
     ] {
         let value = text(&settings, key, &settings_path)?;
-        if matches!(key, "url" | "github_url" | "all_projects_url") {
+        if matches!(
+            key,
+            "url" | "website_url" | "github_url" | "all_projects_url"
+        ) {
             url(value, &settings_path, key)?;
         }
         values.insert(key.to_string(), escape(value));
@@ -549,7 +554,11 @@ pub fn build(source: &Path, output: &Path) -> Result<usize> {
     let back_label = escape(text(&guide_meta, "back_label", &guide_path)?);
     values.insert(
         "header_link_html".into(),
-        stamp_link(&values["github_label"], &values["github_url"], true),
+        format!(
+            "{}\n{}",
+            stamp_link(&values["website_label"], &values["website_url"], true),
+            stamp_link(&values["github_label"], &values["github_url"], true)
+        ),
     );
     values.insert(
         "footer_links_html".into(),

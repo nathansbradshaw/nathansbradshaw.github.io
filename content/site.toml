@@ -1,8 +1,10 @@
 # Page text and profile links. Project descriptions live in projects/*.md.
 name = "Nathan Bradshaw"
 title = "Nathan Bradshaw — Projects & Experiments"
-description = "Nathan Bradshaw's software, electronics, keyboard, and music projects."
+description = "Nathan Bradshaw's software, electronics, keyboard, and audio processing projects."
 url = "https://nathansbradshaw.github.io/"
+website_url = "https://nathanbradshaw.dev/"
+website_label = "My website"
 github_url = "https://github.com/nathansbradshaw"
 github_label = "My GitHub"
 projects_heading = "Projects & experiments."
