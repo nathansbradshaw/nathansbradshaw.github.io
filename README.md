@@ -59,9 +59,9 @@ attributes reserve space while a photo loads:
 ![My keyboard on the bench](/images/my-project.jpg){ width="1200" height="600" loading="lazy" decoding="async" }
 ```
 
-Images print as halftone dots in the same ink and paper colors as the text,
-with slight ink spread and faint ribbon lines. The SVG filter lives in the
-page template; CSS selects a finer dot pattern on small screens. Original image files stay in full color. To bypass the effect, add
+Images keep their color with fine ink dots and a broken print edge, using the
+same SVG masks as my personal site. Original image files stay unchanged.
+To bypass the effect, add
 `class="full-color"` to its Markdown image attributes.
 
 The Keyboard Keyboard photo comes from the presentation's project-owned photos;

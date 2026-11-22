@@ -102,13 +102,32 @@ body { height:100%; overflow:hidden; margin:0; background:repeating-linear-gradi
 #project-printer .markdown th,#project-printer .markdown td { padding:9px 12px; border:1px dotted #8c9989; text-align:left; vertical-align:top; }
 #project-printer .markdown th { background:#648d640c; text-shadow:.35px 0 currentColor; }
 #project-printer .markdown img { display:block; margin:18px 0; max-width:100%; height:auto; padding:5px; border:1px dotted #8c9989; }
-/* Halftone ink dots, slight ink spread, and a faint ribbon pass every eight pixels. */
+/* Color photographs use the same fine ink dots and broken edge as the personal site. */
 .print-effects { position:absolute; pointer-events:none; }
-#project-printer .markdown img:not(.full-color) {
- filter:url(#ribbon-print);
+#project-printer .markdown .print-image {
+ display:block;
+ margin:18px 0;
  mix-blend-mode:multiply;
- opacity:.95;
- mask-image:repeating-linear-gradient(to bottom,#000 0 7px,#000e 7px 8px);
+ -webkit-mask-image:url('print-edge.svg');
+ mask-image:url('print-edge.svg');
+ -webkit-mask-size:100% 100%;
+ mask-size:100% 100%;
+ -webkit-mask-repeat:no-repeat;
+ mask-repeat:no-repeat;
+}
+#project-printer .markdown .print-image img {
+ width:100%;
+ padding:0;
+ margin:0;
+ border:0;
+ filter:none;
+ opacity:1;
+ -webkit-mask-image:url('fine-dots.svg');
+ mask-image:url('fine-dots.svg');
+ -webkit-mask-size:1.7px 1.7px;
+ mask-size:1.7px 1.7px;
+ -webkit-mask-repeat:repeat;
+ mask-repeat:repeat;
 }
 
 #project-printer .markdown dt { margin-top:14px; text-shadow:.35px 0 currentColor; }
@@ -148,7 +167,6 @@ body { height:100%; overflow:hidden; margin:0; background:repeating-linear-gradi
  #project-printer .markdown :is(strong,dt,th) { text-shadow:none; }
  #project-printer .markdown pre { font:inherit; font-size:14px; padding:10px; }
  #project-printer .markdown :is(table,.footnote,.footnote p) { font-size:14px; }
- #project-printer .markdown img:not(.full-color) { filter:url(#ribbon-print-fine); }
  #project-printer .printer-frame { width:var(--receipt-machine-width); aspect-ratio:1.5; bottom:-8px; --paper-exit:61.2%; }
  #project-printer .output-slot { left:13%; right:13%; }
  #project-printer .head-track,#project-printer .matrix-label { display:none; }

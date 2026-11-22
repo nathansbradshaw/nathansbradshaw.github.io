@@ -227,6 +227,12 @@ impl MarkdownRenderer<'_> {
             Node::Comment(value) => out.push_str(&format!("<!--{}-->", value.comment)),
             Node::Element(element) => {
                 let tag = element.name();
+                let printed_photo = tag == "img"
+                    && !element
+                        .attr("class")
+                        .unwrap_or("")
+                        .split_whitespace()
+                        .any(|class| class == "full-color");
                 if tag == "html" {
                     for child in node.children() {
                         self.render(child, literal, raw, out);
@@ -268,6 +274,9 @@ impl MarkdownRenderer<'_> {
                 if tag == "section" && attrs.contains_key("data-footnotes") {
                     attrs.insert("class".into(), "footnote".into());
                 }
+                if printed_photo {
+                    out.push_str("<span class=\"print-image\">");
+                }
                 out.push_str(&format!("<{tag}"));
                 for (key, value) in attrs {
                     out.push_str(&format!(" {key}=\"{}\"", escape(&value)));
@@ -306,6 +315,9 @@ impl MarkdownRenderer<'_> {
                 }
                 if tag == "table" {
                     out.push_str("</div>");
+                }
+                if printed_photo {
+                    out.push_str("</span>");
                 }
             }
             _ => {
@@ -701,6 +713,8 @@ pub fn build(source: &Path, output: &Path) -> Result<usize> {
         "DotMatrix-Bold.woff2",
         "DotMatrix-BoldItalic.woff2",
         "DotMatrix-OFL.txt",
+        "fine-dots.svg",
+        "print-edge.svg",
     ] {
         fs::copy(
             source.join("assets").join(name),
