@@ -75,6 +75,9 @@ The YACE screenshot is its public synthetic demo capture from the project's
 README. The Ironbound screenshot shows its built-in example Barrows account;
 no personal bank or account data is included.
 
+The Virtual Synthphone E screenshot is captured from its powered-on browser app.
+The DSP Viewer screenshot was supplied by the project owner.
+
 ## Preview locally
 
 Install a current stable Rust toolchain. Cargo downloads the build dependencies.

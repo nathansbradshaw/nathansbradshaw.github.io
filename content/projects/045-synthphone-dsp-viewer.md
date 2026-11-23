@@ -16,3 +16,5 @@ url = "https://github.com/nathansbradshaw/synthphone-diagrams/blob/main/DESIGN.m
 +++
 
 Explore the Synthphone-E audio pipeline with interactive controls and waveform, spectrum, and pitch displays.
+
+![Synthphone DSP Viewer showing its waveform display and audio analysis controls](/images/synthphone-dsp-viewer.png){ width="2216" height="1620" loading="lazy" decoding="async" }

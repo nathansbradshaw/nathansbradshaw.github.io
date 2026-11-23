@@ -12,3 +12,5 @@ url = "https://github.com/UnitedCode/virtual-synthphone-e"
 +++
 
 Synthphone-E, with fewer things to plug in. A browser version that runs the real firmware, with interactive phone controls, a working display, synth sounds, vocal effects, and MIDI. Live microphone processing is still experimental.
+
+![Virtual Synthphone E running in the browser with the phone controls and OLED display](/images/virtual-synthphone-e.jpg){ width="1280" height="720" loading="lazy" decoding="async" }

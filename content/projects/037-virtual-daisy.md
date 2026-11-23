@@ -3,10 +3,6 @@ title = "Virtual Daisy"
 category = "Synthphone-E / Firmware tools"
 
 [[links]]
-label = "Open website"
-url = "https://unitedcode.github.io/virtual-daisy/"
-
-[[links]]
 label = "View source"
 url = "https://github.com/UnitedCode/virtual-daisy"
 +++
