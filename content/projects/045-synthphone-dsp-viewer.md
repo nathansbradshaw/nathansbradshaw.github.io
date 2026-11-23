@@ -3,6 +3,10 @@ title = "Synthphone DSP Viewer"
 category = "Synthphone-E / Audio visualization"
 
 [[links]]
+label = "Open website"
+url = "https://nathansbradshaw.github.io/synthphone-diagrams/"
+
+[[links]]
 label = "View source"
 url = "https://github.com/nathansbradshaw/synthphone-diagrams"
 
