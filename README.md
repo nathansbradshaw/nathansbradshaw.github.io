@@ -71,6 +71,10 @@ TOA images are screenshots of the actual apps. The guitar wiring photo comes fro
 my original Rock Band conversion write-up. All images are stored in this
 repository, so the page doesn't depend on another site's image hosting.
 
+The YACE screenshot is its public synthetic demo capture from the project's
+README. The Ironbound screenshot shows its built-in example Barrows account;
+no personal bank or account data is included.
+
 ## Preview locally
 
 Install a current stable Rust toolchain. Cargo downloads the build dependencies.
